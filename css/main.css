@@ -152,9 +152,6 @@ body {
     -ms-flex-pack: center;
 }
 
-#menuHand ul {
-}
-
 #menuHand li {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -612,12 +609,6 @@ footer .footer_text {
     position: fixed;
 }
 
-.menu_left {
-}
-
-.menu__items {
-}
-
 .menu__item {
     width: 6.3vw;
     height: 6.3vw;
@@ -671,9 +662,9 @@ footer .footer_text {
 
 .content {
     padding-top: 110px;
-    margin-right: 10%;
+    margin-right: 7%;
     width: 80%;
-    margin-left: calc(7vw + 8%);
+    margin-left: calc(7vw + 7%);
 }
 
 .content-top {
@@ -810,8 +801,6 @@ footer .footer_text {
     margin-right: 20px;
 }
 
-.list__col_count-sait {
-}
 
 .list__item__arrows {
     padding-top: 3px;
@@ -820,9 +809,6 @@ footer .footer_text {
 .arrow {
     display: flex;
     margin-bottom: 2px;
-}
-
-.arrow_bot {
 }
 
 .list__item__col_inn {

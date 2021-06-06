@@ -89,7 +89,7 @@
         </header>
 
         <main class="main">
-            <div class="menu menu_left">
+            <div class="menu">
                 <div class="menu__items">
                     <div class="menu__item_active">
                         <svg class="menu__item__icon" width="38" height="34" viewBox="0 0 38 34" fill="none">
@@ -133,13 +133,13 @@
                     </a>
                 </div>
                 <div class="menu__items_bottom">
-                    <a href="#" class="menu__item">
+                    <div class="menu__item switch-menu">
                         <svg class="menu__item__icon" width="38" height="27" viewBox="0 0 38 27" fill="none">
                             <rect x="1" y="1" width="36" height="25" rx="2" stroke="#919797" stroke-width="2" />
                             <path d="M9 1L9 26" stroke="#919797" stroke-width="2" />
                         </svg>
                         <span class="menu__items__title">Положение меню</span>
-                    </a>
+                    </div>
                     <a href="#" class="menu__item">
                         <svg class="menu__item__icon" width="28" height="30" viewBox="0 0 28 30" fill="none">
                             <path
@@ -167,7 +167,7 @@
                     </a>
                 </div>
                 <ul class="list">
-                    <li class="list__item_names">
+                    <div class="list__item_names">
                         <div class="list__item__col list__col_name">
                             <span class="col_name_arrow">Название организации</span>
                             <div class="list__item__arrows">
@@ -192,7 +192,7 @@
                                 <a href="#"><img src="img/icon/arrows_bottom.svg" alt="" class="arrow" /></a>
                             </div>
                         </div>
-                    </li>
+                    </div>
 
                     <li>
                         <a href="#" class="list__item">
@@ -214,68 +214,7 @@
                             </div>
                         </a>
                     </li>
-                    <li>
-                        <a href="#" class="list__item">
-                            <div class="mobile_adapt">
-                                <div class="list__item__col list__item__col_name">
-                                    <span>ООО Вебреф</span>
-                                </div>
-                                <div class="list__item__col list__item__col_inn">
-                                    <span>484684654548</span>
-                                </div>
-                                <div class="list__item__col list__item__col_adress">
-                                    <span>г. Москва, ул. Набережная 17, к.2</span>
-                                </div>
-                            </div>
-                            <div class="list__item__col list__item__col_count-sait">
-                                <div class="count-site">
-                                    <span>4</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="list__item">
-                            <div class="mobile_adapt">
-                                <div class="list__item__col list__item__col_name">
-                                    <span>ООО Вебреф</span>
-                                </div>
-                                <div class="list__item__col list__item__col_inn">
-                                    <span>484684654548</span>
-                                </div>
-                                <div class="list__item__col list__item__col_adress">
-                                    <span>г. Москва, ул. Набережная 17, к.2</span>
-                                </div>
-                            </div>
-                            <div class="list__item__col list__item__col_count-sait">
-                                <div class="count-site">
-                                    <span>4</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="list__item">
-                            <div class="mobile_adapt">
-                                <div class="list__item__col list__item__col_name">
-                                    <span>ООО Вебреф</span>
-                                </div>
-                                <div class="list__item__col list__item__col_inn">
-                                    <span>484684654548</span>
-                                </div>
-                                <div class="list__item__col list__item__col_adress">
-                                    <span>г. Москва, ул. Набережная 17, к.2</span>
-                                </div>
-                            </div>
-                            <div class="list__item__col list__item__col_count-sait">
-                                <div class="count-site">
-                                    <span>4</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
+                    
                     <li>
                         <a href="#" class="list__item">
                             <div class="mobile_adapt">
@@ -403,29 +342,195 @@
                     </li>
 
                     <li>
-                        <div class="list__item_last">
-                            <div class="page-selector">
-                                <a href="#">
-                                    <img href="#" class="arrow-selector" src="img/icon/arrow_left.svg" alt="" />
-                                </a>
-                                <div class="numbers">
-                                    <a href="#" class="number-page number-page_active">1</a>
-                                    <a href="#" class="number-page">2</a>
-                                    <a href="#" class="number-page">3</a>
+                        <a href="#" class="list__item">
+                            <div class="mobile_adapt">
+                                <div class="list__item__col list__item__col_name">
+                                    <span>ООО Вебреф</span>
                                 </div>
-                                <a href="#">
-                                    <img src="img/icon/arrow_right.svg" alt="" class="arrow-selector" />
-                                </a>
+                                <div class="list__item__col list__item__col_inn">
+                                    <span>484684654548</span>
+                                </div>
+                                <div class="list__item__col list__item__col_adress">
+                                    <span>г. Москва, ул. Набережная 17, к.2</span>
+                                </div>
                             </div>
-                            <div class="select-number_of_pages">
-                                <span class="select__text"> Показано записей </span>
-                                <select class="selection">
-                                    <option selected>10</option>
-                                    <option>15</option>
-                                    <option>20</option>
-                                </select>
-                                <span class="select__text"> из 28 </span>
+                            <div class="list__item__col list__item__col_count-sait">
+                                <div class="count-site">
+                                    <span>4</span>
+                                </div>
                             </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="list__item">
+                            <div class="mobile_adapt">
+                                <div class="list__item__col list__item__col_name">
+                                    <span>ООО Вебреф</span>
+                                </div>
+                                <div class="list__item__col list__item__col_inn">
+                                    <span>484684654548</span>
+                                </div>
+                                <div class="list__item__col list__item__col_adress">
+                                    <span>г. Москва, ул. Набережная 17, к.2</span>
+                                </div>
+                            </div>
+                            <div class="list__item__col list__item__col_count-sait">
+                                <div class="count-site">
+                                    <span>4</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="list__item">
+                            <div class="mobile_adapt">
+                                <div class="list__item__col list__item__col_name">
+                                    <span>ООО Вебреф</span>
+                                </div>
+                                <div class="list__item__col list__item__col_inn">
+                                    <span>484684654548</span>
+                                </div>
+                                <div class="list__item__col list__item__col_adress">
+                                    <span>г. Москва, ул. Набережная 17, к.2</span>
+                                </div>
+                            </div>
+                            <div class="list__item__col list__item__col_count-sait">
+                                <div class="count-site">
+                                    <span>4</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="list__item">
+                            <div class="mobile_adapt">
+                                <div class="list__item__col list__item__col_name">
+                                    <span>ООО Вебреф</span>
+                                </div>
+                                <div class="list__item__col list__item__col_inn">
+                                    <span>484684654548</span>
+                                </div>
+                                <div class="list__item__col list__item__col_adress">
+                                    <span>г. Москва, ул. Набережная 17, к.2</span>
+                                </div>
+                            </div>
+                            <div class="list__item__col list__item__col_count-sait">
+                                <div class="count-site">
+                                    <span>4</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="list__item">
+                            <div class="mobile_adapt">
+                                <div class="list__item__col list__item__col_name">
+                                    <span>ООО Вебреф</span>
+                                </div>
+                                <div class="list__item__col list__item__col_inn">
+                                    <span>484684654548</span>
+                                </div>
+                                <div class="list__item__col list__item__col_adress">
+                                    <span>г. Москва, ул. Набережная 17, к.2</span>
+                                </div>
+                            </div>
+                            <div class="list__item__col list__item__col_count-sait">
+                                <div class="count-site">
+                                    <span>4</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="list__item">
+                            <div class="mobile_adapt">
+                                <div class="list__item__col list__item__col_name">
+                                    <span>ООО Вебреф</span>
+                                </div>
+                                <div class="list__item__col list__item__col_inn">
+                                    <span>484684654548</span>
+                                </div>
+                                <div class="list__item__col list__item__col_adress">
+                                    <span>г. Москва, ул. Набережная 17, к.2</span>
+                                </div>
+                            </div>
+                            <div class="list__item__col list__item__col_count-sait">
+                                <div class="count-site">
+                                    <span>4</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="list__item">
+                            <div class="mobile_adapt">
+                                <div class="list__item__col list__item__col_name">
+                                    <span>ООО Вебреф</span>
+                                </div>
+                                <div class="list__item__col list__item__col_inn">
+                                    <span>484684654548</span>
+                                </div>
+                                <div class="list__item__col list__item__col_adress">
+                                    <span>г. Москва, ул. Набережная 17, к.2</span>
+                                </div>
+                            </div>
+                            <div class="list__item__col list__item__col_count-sait">
+                                <div class="count-site">
+                                    <span>4</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="list__item">
+                            <div class="mobile_adapt">
+                                <div class="list__item__col list__item__col_name">
+                                    <span>ООО Вебреф</span>
+                                </div>
+                                <div class="list__item__col list__item__col_inn">
+                                    <span>484684654548</span>
+                                </div>
+                                <div class="list__item__col list__item__col_adress">
+                                    <span>г. Москва, ул. Набережная 17, к.2</span>
+                                </div>
+                            </div>
+                            <div class="list__item__col list__item__col_count-sait">
+                                <div class="count-site">
+                                    <span>4</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="list__item_last">
+                        <div class="page-selector">
+                            <a href="#">
+                                <img href="#" class="arrow-selector" src="img/icon/arrow_left.svg" alt="" />
+                            </a>
+                            <div class="numbers">
+                                <a href="#" class="number-page number-page_active">1</a>
+                                <a href="#" class="number-page">2</a>
+                                <a href="#" class="number-page">3</a>
+                            </div>
+                            <a href="#">
+                                <img src="img/icon/arrow_right.svg" alt="" class="arrow-selector" />
+                            </a>
+                        </div>
+                        <div class="select-number_of_pages">
+                            <span class="select__text"> Показано записей </span>
+                            <select class="selection">
+                                <option selected>10</option>
+                                <option>4</option>
+                                <option>15</option>
+                            </select>
+                            <span class="select__text"> из 28 </span>
                         </div>
                     </li>
                 </ul>

@@ -24,7 +24,6 @@ $(".lmblock").click(function () {
         $("#lm1, #lm2, #lm3").css({ background: "#ed008c" });
         $(".lm-title").css({ color: "#ed008c" });
     } else {
-        // $("#menuHand").css({"margin-top": "-100vh"});
         setTimeout(function () {
             $("#menuHand").css({ height: "0vh" });
             $("#menuHand li").css({ display: "none" });
@@ -32,7 +31,6 @@ $(".lmblock").click(function () {
                 $(".lm-title").css({ color: "#ffffff" });
             }, 300);
             $("#menuHand li").css({ display: "none" });
-            // $("#menuHand").css({"display": "none"});
         }, 200);
     }
     counter++;
