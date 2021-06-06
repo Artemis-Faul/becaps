@@ -19,6 +19,185 @@ body {
     margin: 0 auto;
 }
 
+/* menu for handlend  */
+
+.left-menu {
+    width: 6vh;
+    position: fixed;
+    top: 0px;
+    right: 15px;
+    margin-top: 15px;
+    z-index: 100;
+    cursor: pointer;
+    display: none;
+}
+
+.lm-title {
+    color: #ffffff;
+    display: block;
+    font-size: 4.1vh;
+    line-height: 4vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 1.5vh;
+    margin-top: 1vh;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+}
+
+.hand {
+    margin-left: 0vh;
+    margin-top: 0vh;
+}
+
+/* button starting stylings ------------------------------- */
+.lmblock {
+    color: #ccc;
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 35px;
+    font-size: 0;
+    cursor: pointer;
+    -webkit-transition: background 0.3s;
+    -o-transition: background 0.3s;
+    transition: background 0.3s;
+}
+.lmblock:focus {
+    outline: none;
+}
+
+/* inner span stylings ------------------------------- */
+.lmblock div {
+    margin-top: 1vh;
+    width: 100%;
+    background: #919797;
+    display: block;
+    transition: all 0.3s;
+    display: block;
+    position: absolute;
+    top: 7px;
+    height: 2px;
+}
+.lmblock div::before,
+.lmblock div::after {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #919797;
+    content: "";
+}
+.lmblock div::before {
+    top: 10px;
+}
+.lmblock div::after {
+    bottom: 10px;
+}
+
+.lmblock.toggle-hamburger__animx div {
+    -webkit-transition: background 0s 0.3s;
+    transition: background 0s 0.3s;
+}
+.lmblock.toggle-hamburger__animx div::before,
+.lmblock.toggle-hamburger__animx div::after {
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s, 0.3s;
+}
+.lmblock.toggle-hamburger__animx div::before {
+    transition-property: top, transform, background-color;
+}
+.lmblock.toggle-hamburger__animx div::after {
+    transition-property: bottom, transform, background-color;
+}
+
+/* when menu open: */
+.lmblock.toggle-hamburger__animx.is-active div {
+    background-color: #919797;
+    background: none;
+}
+.lmblock.toggle-hamburger__animx.is-active div::before,
+.toggle-hamburger.toggle-hamburger__animx.is-active div::after {
+    background-color: #919797;
+    transition-delay: 0s, 0.3s, 0s;
+}
+.lmblock.toggle-hamburger__animx.is-active div::before {
+    top: 0;
+    background-color: #919797;
+    transform: rotate(45deg);
+}
+.lmblock.toggle-hamburger__animx.is-active div::after {
+    background-color: #919797;
+    transition-delay: 0s, 0.3s, 0s;
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+#menuHand {
+    width: 100vw;
+    height: 0vh;
+    background: white;
+    margin-top: -150vh;
+    z-index: 50;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    display: none;
+    position: fixed;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: flex-start;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+}
+
+#menuHand ul {
+}
+
+#menuHand li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    height: 70px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    padding-left: 4.17%;
+    border: 1px solid #ebebeb;
+}
+
+#menuHand li a {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    -webkit-transition: 0.75s;
+    -o-transition: 0.75s;
+    transition: 0.75s;
+    color: #1c2e35;
+    text-decoration: none;
+    z-index: 5;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.menu__elem_last {
+    position: absolute;
+    bottom: 60px;
+}
+
+.menu__elem_active {
+    background: #ed5b4e0a;
+}
+
+.menu__elem_active svg path {
+    fill: #ed5b4e;
+}
+
+/* end menu for handlend  */
+
 .modal_section {
     height: 100vh;
     width: 100vw;
@@ -786,7 +965,7 @@ footer .footer_text {
     }
 
     .logo {
-        left: 5%;
+        left: 35%;
     }
 
     .page-selector {
@@ -833,9 +1012,13 @@ footer .footer_text {
         padding-bottom: 15px;
         margin-top: -40px;
     }
-
+    .header {
+        justify-content: unset;
+        height: 60px;
+    }
     .profile {
         margin-right: 0;
+        padding-left: 14px;
     }
 
     .user-name {
@@ -848,7 +1031,7 @@ footer .footer_text {
 
     .content {
         margin-left: 0;
-        padding-top: 90px;
+        padding-top: 72px;
     }
 
     .content-top {
@@ -864,6 +1047,10 @@ footer .footer_text {
     .btn_add {
         width: 46px;
         height: 46px;
+        position: fixed;
+        right: 16px;
+        top: 60vh;
+        z-index: 1;
     }
 
     .btn_add span {
@@ -940,6 +1127,16 @@ footer .footer_text {
 
     .number-page {
         margin-right: 7px;
+    }
+
+    .left-menu {
+        display: block;
+    }
+
+    .menu__item__icon {
+        margin-right: 4.17%;
+        width: 9vw;
+        height: 11vw;
     }
 }
 
