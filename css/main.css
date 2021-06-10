@@ -1458,6 +1458,9 @@ footer .footer_text {
 }
 
 @media screen and (max-width: 1440px) {
+    html {
+        font-size: 14px;
+    }
     .list__col_url {
         width: 14vw;
         margin-right: 1vw;
