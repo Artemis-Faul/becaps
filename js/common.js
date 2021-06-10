@@ -1,4 +1,3 @@
-
 $(".eye").on("click", function () {
     $(this).toggleClass("eye_active");
     if ($(".password_input").attr("type") == "password") {
@@ -58,8 +57,7 @@ $("form input[type=email]").on("input", function () {
             $(".btn_send").addClass("disabled");
         }
     }
-});// email check
-
+}); // email check
 
 // Menu position change script
 var menu_position;
@@ -68,16 +66,24 @@ function change_menu() {
     if (menu_position % 2 == 0) {
         $(".menu").css({ right: "0" });
         $(".menu").css({ left: "auto" });
-        $(".content").css({ "margin-right": "7%", "margin-left": "7%" });
-        $(".content_uptime").css({ "margin-right": "1%", "margin-left": "2%" });
+        if (window.matchMedia("(min-width: 1025px)").matches) {
+            $(".content").css({ "margin-right": "7%", "margin-left": "7%" });
+            $(".content_uptime").css({ "margin-right": "1%", "margin-left": "2%" });
+        } else {
+            $(".content").css({ "margin-right": "0", "margin-left": "0" });
+        }
         $(".menu__item_active").css({ "border-right": "5px solid red", "border-left": "0px" });
         $(".switch-menu svg").html(
             '<svg class="menu__item__icon" width="38" height="27" viewBox="0 0 38 27" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="36" height="25" rx="2" stroke="#919797" stroke-width="2"/><path d="M29 1L29 26" stroke="#919797" stroke-width="2"/></svg>'
         );
         Cookies.set("menu_position", "2");
     } else {
-        $(".content").css({ "margin-right": "7%", "margin-left": "calc(7vw + 7%)" });
-        $(".content_uptime").css({ "margin-left": "calc(1vw + 7%)", "margin-right": "20px" });
+        if (window.matchMedia("(min-width: 1025px)").matches) {
+            $(".content").css({ "margin-right": "7%", "margin-left": "calc(7vw + 7%)" });
+            $(".content_uptime").css({ "margin-left": "calc(1vw + 7%)", "margin-right": "20px" });
+        } else {
+            $(".content").css({ "margin-right": "0", "margin-left": "0" });
+        }
         $(".menu").css({ left: "0" });
         $(".switch-menu svg").html(
             '<svg class="menu__item__icon" width="38" height="27" viewBox="0 0 38 27" fill="none"><rect x="1" y="1" width="36" height="25" rx="2" stroke="#919797" stroke-width="2" /><path d="M9 1L9 26" stroke="#919797" stroke-width="2" /></svg>'
@@ -97,8 +103,7 @@ change_menu();
 $(".switch-menu").on("click", function () {
     menu_position++;
     change_menu();
-});// Menu position change script
-
+}); // Menu position change script
 
 // Selection records on site ready
 $(document).ready(function () {
@@ -109,8 +114,7 @@ $(document).ready(function () {
     for (var i = 0; i < per; i++) {
         $(".list li").eq(i).show();
     }
-});// Selection records on site ready
-
+}); // Selection records on site ready
 
 // Selection records on change
 $(".selection").on("change", function () {
@@ -122,7 +126,6 @@ $(".selection").on("change", function () {
     }
 }); // Selection records
 
-
 // Hide/show hint on hover
 if (window.matchMedia("(min-width: 1025px)").matches) {
     $(".uptime-hint__icon").hover(
@@ -133,8 +136,7 @@ if (window.matchMedia("(min-width: 1025px)").matches) {
             $(".uptime-hint").css({ display: "none" });
         }
     );
-}// Hide/show hint on hover
-
+} // Hide/show hint on hover
 
 if (window.matchMedia("(max-width: 1024px)").matches) {
     console.log("hello");
@@ -172,8 +174,8 @@ if (window.matchMedia("(max-width: 1024px)").matches) {
         site_info.eq(i).find(".list__item__col_uptime").prepend("<span>Uptime</span>");
         site_info.eq(i).find(".list__item__col_bitrix").prepend("<span>CMS Bitrix</span>");
         site_info.eq(i).find(".list__item__col_access").prepend("<span>Доступность</span>");
-    } 
-}// Mobile adaptive
+    }
+} // Mobile adaptive
 
 // More errors site show/hide
 if ($(".block-warnings ul li").length > 3) {
@@ -217,8 +219,7 @@ if ($(".block-warnings ul li").length > 3) {
             $(".hide-arrow").hide();
         }
     });
-}// More errors site show/hide
-
+} // More errors site show/hide
 
 $(".arrow").click(function () {
     var $elements = $(".list li");

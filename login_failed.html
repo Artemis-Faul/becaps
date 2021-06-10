@@ -13,42 +13,21 @@
     <body>
         <header></header>
         <main class="main_forms">
-            <div class="modal_section">
-                <div class="modal_wrap">
-                    <p class="modal_title">Восстановление пароля</p>
-                    <p class="modal_text">
-                        Введите email и мы отправим вам новый пароль
-                    </p>
-                    <form class="modal_form" action="check.html">
-                        <div class="input_box">
-                            <input
-                                type="email"
-                                name="email"
-                                maxlength="30"
-                                placeholder="Ваша почта"
-                                required
-                            />
-                        </div>
-                        <button
-                            type="submit"
-                            disabled
-                            class="btn_send disabled"
-                        >
-                            Отправить
-                        </button>
-                    </form>
-                </div>
+            <div class="modal_wrap">
+                <p class="modal_title">Восстановление пароля</p>
+                <p class="modal_text">Введите email и мы отправим вам новый пароль</p>
+                <form class="modal_form" action="check.html">
+                    <div class="input_box">
+                        <input type="email" name="email" maxlength="30" placeholder="Ваша почта" required />
+                    </div>
+                    <button type="submit" disabled class="btn_send disabled">Отправить</button>
+                </form>
             </div>
         </main>
         <footer>
             <p class="footer_title">
                 Проект
-                <img
-                    src="img/icon/logo.svg"
-                    height="25"
-                    width="46"
-                    alt="logo"
-                />
+                <img src="img/icon/logo.svg" height="25" width="46" alt="logo" />
             </p>
             <p class="footer_text">ООО "Информтехнологии"</p>
         </footer>
