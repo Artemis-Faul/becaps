@@ -210,10 +210,10 @@ body {
 }
 
 .modal_wrap {
-    width: 100%;
+    width: 26%;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    max-width: 500px;
+    /* max-width: 500px; */
     margin: 0 auto;
     margin-left: 20px;
     margin-right: 20px;
