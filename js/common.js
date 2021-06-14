@@ -85,6 +85,9 @@ function change_menu() {
         if (window.matchMedia("(min-width: 1025px)").matches) {
             $(".content").css({ "margin-right": "0", "margin-left": "11.4583%" });
             $(".content_uptime").css({ "margin-left": "11.4583%", "margin-right": "1.6666%" });
+            if (window.matchMedia("(max-width: 1600px)").matches) {
+                $(".content_uptime").css({ "margin-left": "8.4583%" });
+            }
         }else if (window.matchMedia("(min-width: 768px)").matches) {
             $(".content").css({ "margin-right": "0", "margin-left": "15.4583%" });
             // $(".content_uptime").css({ "margin-left": "11.4583%", "margin-right": "1.6666%" });
@@ -186,7 +189,7 @@ if (window.matchMedia("(max-width: 1024px)").matches) {
 
 
 // More errors site show/hide
-if ($(".block-warnings ul li").length > 3) {
+if ($(".block-warnings ul li").length > 4) {
     let errors_site = $(".block-warnings ul li");
     var error_site_count = errors_site.length;
 

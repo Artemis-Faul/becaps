@@ -962,7 +962,7 @@ footer .footer_text {
 }
 
 .list__col_access {
-    width: 121px;
+    /* width: 121px; */
 }
 
 .mobile_adapt_names {
@@ -1009,7 +1009,7 @@ footer .footer_text {
 }
 
 .list__item__col_access {
-    width: 121px;
+    /* width: 121px; */
 }
 
 .list__item__col_name-sait span {
@@ -1101,88 +1101,128 @@ footer .footer_text {
     }
 
     .list__col_name-sait {
-        /* width: 12vw; */
-        /* margin-right: 1vw; */
+        width: 195px;
+        margin-right: 15px;
+        padding-left: 30px;
     }
 
     .list__col_url {
-        width: 15vw;
+        width: 200px;
+        margin-right: 30px;
     }
 
     .list__col_client {
-        width: 12vw;
+        width: 170px;
+        margin-right: 15px;
     }
 
     .list__col_count-sait {
         width: 11vw;
     }
 
-    .list__col_test {
-        margin-right: 2vw;
+    .content_uptime {
+        width: 75%;
+        margin-left: 11.4583%;
     }
 
     .list__col_uptime {
-        margin-right: 2vw;
-    }
-
-    .list__col_bitrix {
-        margin-right: 2vw;
+        margin-right: 1vw;
     }
 
     .list__item__col_uptime {
-        margin-right: 10px;
+        margin-right: 15px;
+    }
+
+    .list__item {
+        margin-left: 20px;
     }
 
     .list__item__col_name-sait {
-        margin-right: 30px;
+        margin-right: 15px;
+        width: 175px;
+        padding-left: 10px;
     }
 
     .list__item__col_client {
-        margin-right: 37px;
+        margin-right: 40px;
+        width: 150px;
     }
 
     .list__item__col_url {
-        margin-right: 23px;
+        width: 200px;
+        margin-right: 30px;
     }
 
     .list__item__col_bitrix {
-    margin-right: 0px;
+        margin-right: 50px;
     }
 
     .list__item__col_test {
-        margin-right: 34px;
+        margin-right: 30px;
     }
 }
 
 @media screen and (max-width: 1440px) {
     html {
-        font-size: 14px;
-    }
-    .list__col_url {
-        width: 14vw;
-        margin-right: 1vw;
-    }
-    .list__col_client {
-        width: 8vw;
-        margin-right: 2vw;
-    }
-
-    .list__col_test {
-        margin-right: 1.5vw;
-    }
-
-    .list__col_uptime {
-        margin-right: 1.5vw;
-    }
-
-    html {
         font: 0.875rem "Manrope", sans-serif;
+        font-size: 14px;
     }
 
     .prev-icon {
         width: 31.304px;
         height: 31.304px;
     }
+
+    .list__item__col_uptime {
+        margin-right: 0px;
+    }
+
+    .list__item {
+        margin-left: 20px;
+    }
+
+    .list__col_name-sait {
+        width: 175px;
+    }
+
+    .list__item__col_name-sait {
+        width: 140px;
+    }
+
+    .list__item__col_client {
+        margin-right: 15px;
+    }
+
+    .list__item__col_url {
+        width: 170px;
+        margin-right: 20px;
+    }
+
+    .list__col_url {
+        margin-right: 30px;
+        width: 183px;
+    }
+
+    .list__item__col_test {
+        margin-right: 20px;
+    }
+
+    .list__col_url {
+        margin-right: 30px;
+        width: 183px;
+    }
+
+    .list__col_bitrix {
+        margin-right: 25px;
+    }
+
+    .list__col_access {
+        width: 140px;
+    }
+
+    .list__item__col_bitrix {
+    margin-right: 15px;
+}
 }
 @media screen and (max-width: 1280px) {
     .list__col_client {
@@ -1286,8 +1326,8 @@ footer .footer_text {
     }
 
     .list__item_names .list__col_name {
-    width: 16vw;
-    margin-right: 5vw;
+        width: 16vw;
+        margin-right: 5vw;
     }
 
     .list__item_names .list__col_count-sait {
@@ -1302,8 +1342,8 @@ footer .footer_text {
     }
 
     .list__item__col_name {
-    width: 19vw;
-}
+        width: 19vw;
+    }
 
     .list__col_inn {
         width: 13vw;
@@ -1324,7 +1364,7 @@ footer .footer_text {
 
     .menu__item {
         width: 11vw;
-        height: 11vw;
+        height: 13vw;
     }
 
     .menu__item_active {
@@ -1338,7 +1378,6 @@ footer .footer_text {
     }
 
     .menu__item__icon {
-        margin-bottom: 8px;
     }
 
     .menu__items__title {
@@ -1403,9 +1442,8 @@ footer .footer_text {
         font-size: 16px;
     }
 
-
     .list__item_names .list__col_inn {
-    margin-right: 7vw;
+        margin-right: 7vw;
     }
 
     .list__item__col_inn {
@@ -1581,8 +1619,8 @@ footer .footer_text {
         margin-left: 0;
     }
     .sait-plight {
-        margin-left: 6%;
         position: absolute;
+        left: 15%;
         z-index: 1;
     }
 
@@ -1593,10 +1631,12 @@ footer .footer_text {
     .list__item__col_name-sait {
         padding-left: 0;
         width: calc(100vw - 32px);
+        margin-bottom: 10px;
     }
 
     .list__item__col_url {
         width: 100%;
+        margin-bottom: 10px;
     }
 
     .list__item__col_client {
