@@ -55,3 +55,7 @@ $(".lmblock").click(function () {
         });
     }
 })();
+
+$(".menu__item").click(function () {
+    Cookies.set("page", 1);
+});

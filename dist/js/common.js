@@ -95,6 +95,10 @@ $(".lmblock").click(function () {
     }
 })();
 
+$(".menu__item").click(function () {
+    Cookies.set("page", 1);
+});
+
 // Menu position change script
 var menuPosition = Cookies.get("menu_position");
 if (menuPosition == null) {
@@ -102,7 +106,7 @@ if (menuPosition == null) {
     menuPosition = Cookies.get("menu_position");
 }
 Number.parseInt(menuPosition);
-changeMenu();
+changeMenu(menuPosition);
 
 $(".switch-menu").on("click", function () {
     menuPosition++;
