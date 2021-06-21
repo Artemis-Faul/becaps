@@ -1,3 +1,24 @@
+@@include('cookie.js')
+
+@@include('menu.js')
+
+// Menu position change script
+var menuPosition = Cookies.get("menu_position");
+if (menuPosition == null) {
+    Cookies.set("menu_position", "1");
+    menuPosition = Cookies.get("menu_position");
+}
+Number.parseInt(menuPosition);
+changeMenu(menuPosition);
+
+$(".switch-menu").on("click", function () {
+    menuPosition++;
+    changeMenu(menuPosition);
+}); // Menu position change script
+
+
+@@include('sort.js')
+
 
 $(".eye").on("click", function () {
     $(this).toggleClass("eye_active");
@@ -60,81 +81,7 @@ $("form input[type=email]").on("input", function () {
     }
 }); // email check
 
-// Menu position change script
-var menu_position;
-
-function change_menu() {
-    if (menu_position % 2 == 0) {
-        $(".menu").css({ right: "0" });
-        $(".menu").css({ left: "auto" });
-        if (window.matchMedia("(min-width: 1025px)").matches) {
-            $(".content").css({ "margin-left": "5.2083%" });
-            $(".content_uptime").css({ "margin-right": "1.6666%", "margin-left": "5.2083%" });
-        } else if (window.matchMedia("(min-width: 768px)").matches) {
-            $(".content").css({ "margin-right": "0", "margin-left": "5.2083%" });
-            // $(".content_uptime").css({ "margin-left": "11.4583%", "margin-right": "1.6666%" });
-        } else {
-            $(".content").css({ "margin-right": "0", "margin-left": "0" });
-        }
-        $(".menu__item_active").css({ "border-right": "5px solid red", "border-left": "0px" });
-        $(".switch-menu svg").html(
-            '<svg class="menu__item__icon" width="38" height="27" viewBox="0 0 38 27" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="36" height="25" rx="2" stroke="#919797" stroke-width="2"/><path d="M29 1L29 26" stroke="#919797" stroke-width="2"/></svg>'
-        );
-        Cookies.set("menu_position", "2");
-    } else {
-        if (window.matchMedia("(min-width: 1025px)").matches) {
-            $(".content").css({ "margin-right": "0", "margin-left": "11.4583%" });
-            $(".content_uptime").css({ "margin-left": "11.4583%", "margin-right": "1.6666%" });
-            if (window.matchMedia("(max-width: 1600px)").matches) {
-                $(".content_uptime").css({ "margin-left": "8.4583%" });
-            }
-        }else if (window.matchMedia("(min-width: 768px)").matches) {
-            $(".content").css({ "margin-right": "0", "margin-left": "15.4583%" });
-            // $(".content_uptime").css({ "margin-left": "11.4583%", "margin-right": "1.6666%" });
-        } else {
-            $(".content").css({ "margin-right": "0", "margin-left": "0" });
-        }
-        $(".menu").css({ left: "0" });
-        $(".switch-menu svg").html(
-            '<svg class="menu__item__icon" width="38" height="27" viewBox="0 0 38 27" fill="none"><rect x="1" y="1" width="36" height="25" rx="2" stroke="#919797" stroke-width="2" /><path d="M9 1L9 26" stroke="#919797" stroke-width="2" /></svg>'
-        );
-        Cookies.set("menu_position", "1");
-    }
-}
-
-menu_position = Cookies.get("menu_position");
-if (menu_position == null) {
-    Cookies.set("menu_position", "1");
-    menu_position = Cookies.get("menu_position");
-}
-Number.parseInt(menu_position);
-change_menu();
-
-$(".switch-menu").on("click", function () {
-    menu_position++;
-    change_menu();
-}); // Menu position change script
-
-// Selection records on site ready
-$(document).ready(function () {
-    $(".list li").hide();
-
-    var per = $(".selection").val();
-    per = Number.parseInt(per) + 1;
-    for (var i = 0; i < per; i++) {
-        $(".list li").eq(i).show();
-    }
-}); // Selection records on site ready
-
-// Selection records on change
-$(".selection").on("change", function () {
-    $(".list li").hide();
-
-    var per = $(".selection").val();
-    for (var i = 0; i < per; i++) {
-        $(".list li").eq(i).show();
-    }
-}); // Selection records
+@@include('paginator.js')
 
 // Hide/show hint on hover
 if (window.matchMedia("(min-width: 1025px)").matches) {
@@ -149,11 +96,11 @@ if (window.matchMedia("(min-width: 1025px)").matches) {
 } // Hide/show hint on hover
 
 if (window.matchMedia("(max-width: 1024px)").matches) {
-    console.log("hello");
     $(".block-warnings").appendTo(".content_uptime .content-top");
+    $(".content_uptime .content-top").append('<span class="uptime_mobile">Что такое UpTime?</span>');
     $(".uptime-hint__icon").appendTo(".content_uptime .content__title");
     $(".sait-plight").css({ display: "none" });
-
+    $(".uptime-hint").appendTo(".content_uptime .content-top");
     // Hide/show hint
     $(".uptime-hint__icon").click(function () {
         if (!$(this).hasClass("clicked")) {
@@ -174,7 +121,6 @@ if (window.matchMedia("(max-width: 1024px)").matches) {
     for (var i = 0; i < site_info.length; i++) {
         var name_client = site_info.eq(i).find(".list__item__col_client span").text();
         var site_url = site_info.eq(i).find(".list__item__col_url span").text();
-        console.log(name_client, site_url);
         site_info
             .eq(i)
             .find(".list__item__col_url span")
@@ -203,7 +149,6 @@ if ($(".block-warnings ul li").length > 4) {
         if (!$(this).hasClass("clicked")) {
             $(this).addClass("clicked");
             for (var i = 3; i < error_site_count; i++) {
-                console.log(i);
                 errors_site.eq(i).show();
             }
 
@@ -219,7 +164,6 @@ if ($(".block-warnings ul li").length > 4) {
             $(this).removeClass("clicked");
 
             for (var i = 3; i < error_site_count; i++) {
-                console.log(i);
                 errors_site.eq(i).hide();
             }
 
@@ -232,4 +176,15 @@ if ($(".block-warnings ul li").length > 4) {
     });
 } // More errors site show/hide
 
+
+$(".uptime_mobile").click(function () {
+    if (!$(this).hasClass("clicked")) {
+        $(this).addClass("clicked");
+        $(".uptime-hint").css({ display: "block", position: "inherit", margin:"0 auto" });
+        $(".uptime_mobile").css({"margin-bottom": "14px"});
+    } else {
+        $(this).removeClass("clicked");
+        $(".uptime-hint").css({ display: "none"});
+    }
+});
 

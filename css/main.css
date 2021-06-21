@@ -1070,7 +1070,7 @@ footer .footer_text {
     position: absolute;
     width: 226px;
     top: 45px;
-    padding: 10px;
+    padding: 10px 16px;
     right: 15vw;
     background: #1c2e35;
     opacity: 0.95;
@@ -1082,6 +1082,10 @@ footer .footer_text {
 .uptime-hint__span {
     color: #fff;
     font: 0.875rem "Manrope", sans-serif;
+}
+
+.uptime-hint__span span{
+    font-weight: 600;
 }
 
 .block-warnings ul {
@@ -1313,6 +1317,20 @@ footer .footer_text {
         margin-top: 0px;
         padding: 10px;
         width: 50%;
+    }
+
+    .uptime_mobile{
+        margin: 0 auto;
+        
+        
+        
+        
+        
+
+/* BeCaps Light Text */
+        color: #919797;
+        font: 500 1.125rem "Manrope", sans-serif;
+        border-bottom: 2px dashed #919797;
     }
 
     .content_uptime {
@@ -1618,7 +1636,7 @@ footer .footer_text {
         width: 100vw;
         align-items: center;
         justify-content: space-between;
-        padding: 24px 0;
+        padding: 24px 10px;
     }
 
     .mobile_adapt {
@@ -1652,6 +1670,7 @@ footer .footer_text {
 
     .block-warnings {
         width: 100%;
+        margin-bottom: 14px;
     }
 
     .content_uptime {
