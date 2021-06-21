@@ -495,3 +495,6 @@ $(".uptime_mobile").click(function () {
     }
 });
 
+$("img.exclamation").closest("li").css({ background: "#FEF7F6" });
+
+
