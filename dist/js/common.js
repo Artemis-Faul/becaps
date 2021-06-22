@@ -288,10 +288,6 @@ function showRecords(page, select) {
 }
 
 function genNumbers(select) {
-    if ($(".list li").length == 0) {
-        $(".list li").show();
-        alert($(".list li").length);
-    } 
     numbers = Math.ceil($(".list li").length / select);
     var page = Number(Cookies.get("page"));
     if (!page) {

@@ -1115,6 +1115,29 @@ footer .footer_text {
     stroke: #ed5b4e;
 }
 
+
+.content__title_arrow{
+    display: flex;
+    align-items: center;
+}
+
+.content__title__arrow{
+    margin-right: 14px;
+}
+
+.form-create-edit {
+    margin-top: 12px;
+}
+
+label.required:after{
+    color: red;
+    content: " *";
+}
+
+.many-texts {
+
+}
+
 @media screen and (max-width: 1600px) {
     .list__item__col span:not(.list__item_names .list__item__col span) {
         word-break: break-all;
