@@ -59,3 +59,7 @@ $(".lmblock").click(function () {
 $(".menu__item").click(function () {
     Cookies.set("page", 1);
 });
+
+$("#menuHand a").click(function () {
+    Cookies.set("page", 1);
+});

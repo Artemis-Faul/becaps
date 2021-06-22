@@ -255,6 +255,7 @@ $("form input[type=email]").on("input", function () {
 function SortPages(select, arrowDir, arrowDat) {
 
     $(".list li").show();
+
     var lenLi = $(".list li").length;
     $(".select__text")
         .eq(1)
@@ -273,6 +274,7 @@ function SortPages(select, arrowDir, arrowDat) {
     var page = Number(Cookies.get("page"));
     if (!page) {
         page = 1;
+        Cookies.set("page", 1);
     }
     showRecords(page, select);
 }
@@ -286,11 +288,15 @@ function showRecords(page, select) {
 }
 
 function genNumbers(select) {
+    if ($(".list li").length == 0) {
+        $(".list li").show();
+        alert($(".list li").length);
+    } 
     numbers = Math.ceil($(".list li").length / select);
-
     var page = Number(Cookies.get("page"));
     if (!page) {
         page = 1;
+        Cookies.set("page", 1);
     }
     
     $(".numbers a").remove(".number-page");
@@ -330,11 +336,11 @@ var arrowData = Cookies.get("arrow");
 var arrowDirect = Cookies.get("arrow_direct");
 
 if (!select) {
-    select = 10
+    select = 10;
+    Cookies.set("select", 10);
 }
 
 $('.selection>option:contains("' + select + '")').prop("selected", true);
-
 genNumbers(select);
 SortPages(select, arrowData, arrowDirect);
 
