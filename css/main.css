@@ -613,14 +613,6 @@ footer .footer_text {
     fill: #ed5b4e;
 }
 
-.menu__item:hover {
-    background: rgba(145, 151, 151, 0.1);
-}
-
-.menu__item:active {
-    background: rgba(145, 151, 151, 0.2);
-}
-
 .menu__item_active {
     height: 6.3vw;
     border-bottom: 1px solid #ebebeb;
@@ -719,14 +711,6 @@ footer .footer_text {
     margin-right: 1.25%;
     display: flex;
     border-bottom: 1px solid #e9eaea;
-}
-
-.list__item:hover {
-    background: rgb(255 255 255 / 70%);
-}
-
-.list__item:active {
-    background: rgb(255 255 255 / 50%);
 }
 
 .list__item_last {
@@ -1684,6 +1668,7 @@ label.required:after {
         margin-right: 4.17%;
         width: 9vw;
         height: 11vw;
+        margin-bottom: 0;
     }
 
     .content-top {
@@ -1702,8 +1687,8 @@ label.required:after {
         margin-left: 0;
     }
     .sait-plight {
-        position: absolute;
-        left: 15%;
+        margin: 0 auto;
+        margin-bottom: 20px;
         z-index: 1;
     }
 
