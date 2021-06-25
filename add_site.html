@@ -181,57 +181,43 @@
                 </div>
                 <form class="form-create-edit" action="clients.html">
                     <div class="input-field">
-                        <label class="input-field__label required" for="name_comp">Название организации</label>
+                        <label class="input-field__label required" for="name_sait">Название сайта</label>
                         <input
                             class="input-field__input input_requred"
                             type="text"
-                            name="name_comp"
-                            placeholder="Введите название организации"
+                            name="name_sait"
+                            placeholder="Введите название сайта"
                         />
                     </div>
 
                     <div class="input-field">
-                        <label class="input-field__label big-text_label required" for="reg_address"
-                            >Юридический адрес</label
+                        <label class="input-field__label required" for="url"
+                            >URL</label
                         >
-                        <textarea
-                            class="input-field__input big-text input_requred"
-                            name="reg_address"
-                            placeholder="Введите адрес"
-                        ></textarea>
-                    </div>
-
-                    <div class="input-field">
-                        <label class="input-field__label big-text_label" for="cor_address"
-                            >Адрес для корреспонденции</label
-                        >
-                        <textarea
-                            class="input-field__input big-text"
-                            name="cor_address"
-                            placeholder="Введите адрес"
-                        ></textarea>
-                    </div>
-
-                    <div class="input-field">
-                        <label class="input-field__label required" for="inn">ИНН</label>
-                        <input
-                            maxlength="12"
-                            class="input-field__input input_requred"
-                            type="number"
-                            name="inn"
-                            placeholder="Введите ИНН"
-                        />
-                    </div>
-
-                    <div class="input-field">
-                        <label class="input-field__label required" for="kpp">КПП</label>
                         <input
                             class="input-field__input input_requred"
-                            type="number"
-                            name="kpp"
-                            placeholder="Введите КПП"
-                            maxlength="9"
-                        />
+                            type="text"
+                            name="url"
+                            placeholder="Введите url сайта"
+                        ></input>
+                    </div>
+
+                    <div class="input-field input-field_switch">
+                        <label class="input-field__label" for="switch-btn"
+                            >Проверяется?</label
+                        >
+                        <div class="switch-btn_wrapper">
+                            <div class="switch-btn"></div>
+                        </div>
+                    </div>
+
+                    <div class="input-field input-field_switch">
+                        <label class="input-field__label" for="switch-btn"
+                            >CMS Bitrix</label
+                        >
+                        <div class="switch-btn_wrapper">
+                            <div class="switch-btn"></div>
+                        </div>
                     </div>
 
                     <div class="form__buttons">

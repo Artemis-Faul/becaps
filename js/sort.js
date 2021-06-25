@@ -51,13 +51,11 @@ function sortRecords(arrowData, arrowDirect) {
         else if (arrowData == "Uptime") {
             (a = $(a).find(".list__item__col_uptime span")),
                 (b = $(b).find(".list__item__col_uptime span"));
-            // alert("ЭЭЭЭЭЭЭЭЭЭЭЭй");
         }
         else if (arrowData == "Проверяется") {
             (a = $(a).find(".list__item__col_test img")),
                 (b = $(b).find(".list__item__col_test img"));
             img = 1;
-            // alert(img);
         }
         else if (arrowData == "Bitrix") {
             (a = $(a).find(".list__col_bitrix img")),
@@ -71,12 +69,10 @@ function sortRecords(arrowData, arrowDirect) {
         }
 
         $(".arrow").removeClass("arrow_active");
-        // alert(img);
         if (arrowDirect == "true") {
             $('[data-title="' + arrowData + '"]')
                 .filter(".arrow_bottom")
                 .addClass("arrow_active");
-            // console.log(img);
             if (img) {
                 return $(a).attr("alt") < $(b).attr("alt") ? 1 : -1;
             }

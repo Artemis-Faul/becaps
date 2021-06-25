@@ -6,7 +6,7 @@ function changeMenu(menuPosition) {
             $(".content").css({ "margin-left": "5.2083%" });
             $(".content_uptime").css({ "margin-right": "1.6666%", "margin-left": "2.2083%" });
         } else if (window.matchMedia("(min-width: 768px)").matches) {
-            $(".content").css({ "margin-right": "0", "margin-left": "5.2083%" });
+            $(".content").css({ "margin-right": "0", "margin-left": "5.2083%" });  
         } else {
             $(".content").css({ "margin-right": "0", "margin-left": "0" });
         }
@@ -36,6 +36,7 @@ function changeMenu(menuPosition) {
     }
 }
 
+
 var counter = 0;
 var scrollPos = 0;
 
@@ -57,8 +58,8 @@ $(".lmblock").click(function () {
         setTimeout(function () {
             $("#menuHand li:nth-child(5) a").css({ "margin-top": "0" });
         }, 500);
-        $("#menuHand li").css({ display: "flex", "align-items": "center" });
-        $("#menuHand").css({ display: "flex", height: "100vh" });
+        $("#menuHand li").css({ "display": "flex", "align-items": "center"});
+        $("#menuHand").css({ "display": "flex", "height": "100vh" });;
         $("#lm1, #lm2, #lm3").css({ background: "#ed008c" });
         $(".lm-title").css({ color: "#ed008c" });
     } else {
@@ -116,6 +117,7 @@ $(".switch-menu").on("click", function () {
     changeMenu(menuPosition);
 }); // Menu position change script
 
+
 jQuery.fn.sortElements = (function () {
     var sort = [].sort;
 
@@ -154,34 +156,43 @@ function sortRecords(arrowData, arrowDirect) {
         var img = 0;
         if (arrowData == "Название") {
             (a = $(a).find(".list__item__col_name span")), (b = $(b).find(".list__item__col_name span"));
-        } else if (arrowData == "ИНН") {
+        }
+        else if (arrowData == "ИНН") {
             (a = $(a).find(".list__item__col_inn span")), (b = $(b).find(".list__item__col_inn span"));
-        } else if (arrowData == "Количество") {
-            (a = $(a).find(".list__item__col_count-sait span")), (b = $(b).find(".list__item__col_count-sait span"));
-        } else if (arrowData == "Клиенты") {
-            (a = $(a).find(".list__item__col_client span")), (b = $(b).find(".list__item__col_client span"));
-        } else if (arrowData == "Uptime") {
-            (a = $(a).find(".list__item__col_uptime span")), (b = $(b).find(".list__item__col_uptime span"));
-            // alert("ЭЭЭЭЭЭЭЭЭЭЭЭй");
-        } else if (arrowData == "Проверяется") {
-            (a = $(a).find(".list__item__col_test img")), (b = $(b).find(".list__item__col_test img"));
+        }
+        else if (arrowData == "Количество") {
+            (a = $(a).find(".list__item__col_count-sait span")),
+                (b = $(b).find(".list__item__col_count-sait span"));
+        }
+        else if (arrowData == "Клиенты") {
+            (a = $(a).find(".list__item__col_client span")),
+                (b = $(b).find(".list__item__col_client span"));
+        }
+        else if (arrowData == "Uptime") {
+            (a = $(a).find(".list__item__col_uptime span")),
+                (b = $(b).find(".list__item__col_uptime span"));
+        }
+        else if (arrowData == "Проверяется") {
+            (a = $(a).find(".list__item__col_test img")),
+                (b = $(b).find(".list__item__col_test img"));
             img = 1;
-            // alert(img);
-        } else if (arrowData == "Bitrix") {
-            (a = $(a).find(".list__item__col_bitrix img")), (b = $(b).find(".list__item__col_bitrix img"));
+        }
+        else if (arrowData == "Bitrix") {
+            (a = $(a).find(".list__col_bitrix img")),
+                (b = $(b).find(".list__col_bitrix img"));
             img = 1;
-        } else if (arrowData == "Доступ") {
-            (a = $(a).find(".list__item__col_access img")), (b = $(b).find(".list__item__col_access img"));
+        }
+        else if (arrowData == "Доступ") {
+            (a = $(a).find(".list__col_access img")),
+                (b = $(b).find(".list__col_access img"));
             img = 1;
         }
 
         $(".arrow").removeClass("arrow_active");
-        // alert(img);
         if (arrowDirect == "true") {
             $('[data-title="' + arrowData + '"]')
                 .filter(".arrow_bottom")
                 .addClass("arrow_active");
-            // console.log(img);
             if (img) {
                 return $(a).attr("alt") < $(b).attr("alt") ? 1 : -1;
             }
@@ -190,7 +201,7 @@ function sortRecords(arrowData, arrowDirect) {
         $('[data-title="' + arrowData + '"]')
             .not(".arrow_bottom")
             .addClass("arrow_active");
-
+        
         if (img) {
             return $(a).attr("alt") > $(b).attr("alt") ? 1 : -1;
         }
@@ -205,6 +216,8 @@ $(document).ready(function () {
 
     sortRecords(arrowData, arrowDirect);
 });
+
+
 
 $(".eye").on("click", function () {
     $(this).toggleClass("eye_active");
@@ -269,6 +282,7 @@ $("form input[type=email]").on("input", function () {
 
 // Selection records on site ready
 function SortPages(select, arrowDir, arrowDat) {
+
     $(".list li").show();
 
     var lenLi = $(".list li").length;
@@ -309,27 +323,28 @@ function genNumbers(select) {
         page = 1;
         Cookies.set("page", 1);
     }
-
+    
     $(".numbers a").remove(".number-page");
 
     if (numbers > 4) {
         $(".numbers").append('<a href="" class="number-page">1</a>');
         if (page == 1) {
-            $(".numbers").append('<a href="" class="number-page">' + (page + 1) + "</a>");
+            $(".numbers").append('<a href="" class="number-page">' + (page+1) + "</a>");
             $(".numbers").append('<a href="" class="number-page">' + (page + 2) + "</a>");
             $(".numbers").append('<p class="number-page_ellipsis">...</p>');
             $(".numbers").append('<a href="" class="number-page">' + numbers + "</a>");
-        } else if (page + 2 < numbers) {
-            $(".numbers").append('<a href="" class="number-page">' + page + "</a>");
-            $(".numbers").append('<a href="" class="number-page">' + (page + 1) + "</a>");
-            $(".numbers").append('<p class="number-page_ellipsis">...</p>');
-            $(".numbers").append('<a href="" class="number-page">' + numbers + "</a>");
-        } else {
+        }
+        else if (page + 2 < numbers) {
+             $(".numbers").append('<a href="" class="number-page">' + page + "</a>");
+             $(".numbers").append('<a href="" class="number-page">' + (page + 1) + "</a>");
+             $(".numbers").append('<p class="number-page_ellipsis">...</p>');
+             $(".numbers").append('<a href="" class="number-page">' + numbers + "</a>");
+         } else {
             $(".numbers").append('<p class="number-page_ellipsis">...</p>');
             $(".numbers").append('<a href="" class="number-page">' + (numbers - 2) + "</a>");
-            $(".numbers").append('<a href="" class="number-page">' + (numbers - 1) + "</a>");
-            $(".numbers").append('<a href="" class="number-page">' + numbers + "</a>");
-        }
+             $(".numbers").append('<a href="" class="number-page">' + (numbers - 1) + "</a>");
+             $(".numbers").append('<a href="" class="number-page">' + numbers + "</a>");
+         }
     } else {
         for (let i = 1; i <= numbers; i++) {
             $(".numbers").append('<a href="" class="number-page">' + i + "</a>");
@@ -337,7 +352,8 @@ function genNumbers(select) {
     }
 
     $(".number-page .number-page_active").removeClass("number-page_active");
-    $('.number-page:contains("' + page + '")').addClass("number-page_active");
+    $('.number-page:contains("' + page + '")')
+        .addClass("number-page_active");
 }
 
 var select = Cookies.get("select");
@@ -395,12 +411,13 @@ $(".arrow-selector_right").click(function () {
     }
 });
 
+
 $(".arrow-selector_left").click(function () {
     page = Number(Cookies.get("page"));
     select = Cookies.get("select");
     numbers = Math.ceil($(".list li").length / select);
     if (page > 1) {
-        Cookies.set("page", page - 1);
+        Cookies.set("page", page-1);
     }
 });
 
@@ -454,6 +471,7 @@ if (window.matchMedia("(max-width: 1024px)").matches) {
     }
 } // Mobile adaptive
 
+
 // More errors site show/hide
 if ($(".block-warnings ul li").length > 4) {
     let errors_site = $(".block-warnings ul li");
@@ -496,15 +514,62 @@ if ($(".block-warnings ul li").length > 4) {
     });
 } // More errors site show/hide
 
+
 $(".uptime_mobile").click(function () {
     if (!$(this).hasClass("clicked")) {
         $(this).addClass("clicked");
-        $(".uptime-hint").css({ display: "block", position: "inherit", margin: "0 auto" });
-        $(".uptime_mobile").css({ "margin-bottom": "14px" });
+        $(".uptime-hint").css({ display: "block", position: "inherit", margin:"0 auto" });
+        $(".uptime_mobile").css({"margin-bottom": "14px"});
     } else {
         $(this).removeClass("clicked");
-        $(".uptime-hint").css({ display: "none" });
+        $(".uptime-hint").css({ display: "none"});
     }
 });
 
 $("img.exclamation").closest("li").css({ background: "#FEF7F6" });
+
+
+$(".input-field__input").on("input", function () {
+    if ($(this).val()) {
+        $(this).css({ border: "0", background: "#F6F6F6" });
+    }
+});
+
+
+$('body').on('input', 'input[type="number"][maxlength]', function(){
+	if (this.value.length > this.maxLength){
+		this.value = this.value.slice(0, this.maxLength);
+	}
+});
+
+$( ".form-create-edit" ).submit(function(event) {
+    var inputsLen = $(".input_requred").length;
+    for (let i = 0; i < inputsLen; i++){
+        input = $(".input_requred").eq(i);
+        if (!input.val()) {
+            if (!input.hasClass("not_fill")) {
+                input.addClass("not_fill");
+                $('<p class="input-field__text">Это обязательное поле. Заполните его, пожалуйста</p>').insertAfter(input.closest(".input-field"));
+            }
+            
+
+            input.css({ border: "1px solid #DA0B20", background: "rgba(218, 11, 32, 0.05)" })
+            input.closest(".input-field").css({ "margin-bottom": "0" });
+            event.preventDefault();
+        }
+        else {
+            $(".input-field__text").eq(i).remove();
+            input.closest(".input-field").css({ "margin-bottom": "2.5%" });
+        }
+    }
+});
+
+$('.switch-btn').click(function(){
+    $(this).toggleClass('switch-on');
+    if ($(this).hasClass('switch-on')) {
+        $(this).trigger('on.switch');
+    } else {
+        $(this).trigger('off.switch');
+    }
+});
+

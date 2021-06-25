@@ -268,7 +268,7 @@ body {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 4% 1%;
-    webkit-appearance: none;
+    -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     border: none;
@@ -963,10 +963,6 @@ footer .footer_text {
     margin-right: 48px;
 }
 
-.list__col_access {
-    /* width: 121px; */
-}
-
 .mobile_adapt_names {
     display: flex;
 }
@@ -1008,10 +1004,6 @@ footer .footer_text {
 .list__item__col_bitrix {
     width: 98px;
     margin-right: 48px;
-}
-
-.list__item__col_access {
-    /* width: 121px; */
 }
 
 .list__item__col_name-sait span {
@@ -1110,14 +1102,139 @@ footer .footer_text {
 
 .form-create-edit {
     margin-top: 12px;
+    width: 60%;
+    background: #ffffff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    padding: 2.63% 37px 3% 43px;
+    margin-bottom: 50px;
+}
+
+.form__buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.input-field__text {
+    font-size: 11px;
+    color: #da0b20;
+    font: 400 0.6875rem "Manrope", sans-serif;
+    text-align: end;
+    margin-bottom: 2%;
+}
+
+.submit-button {
+    padding: 1.7% 20px;
+    background: linear-gradient(92.96deg, #ea495c -5.24%, #f37c35 100.77%);
+    border-radius: 10px;
+    border: 0;
+    font: 600 1rem "Manrope", sans-serif;
+    color: #fff;
+}
+
+.cancel-button {
+    font: 600 1rem "Manrope", sans-serif;
+    color: #919797;
+    margin-right: 28px;
+}
+
+.input-field {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5%;
+    align-items: center;
+}
+
+.switch-btn_wrapper {
+    width: 50%;
+}
+
+.input-field__label {
+    font: 600 1rem "Manrope", sans-serif;
+    display: block;
+}
+
+.big-text_label {
+    padding-top: 10px;
+    align-self: baseline;
+}
+
+.input-field__input {
+    padding: 1.5625%;
+    width: 50%;
+    background: #f6f6f6;
+    border-radius: 10px;
+    border: 0;
+    padding-left: 15px;
+    font: 500 1em "Manrope", sans-serif;
 }
 
 label.required:after {
     color: red;
-    content: " *";
+    content: "    *";
+    padding-left: 3px;
 }
 
-.many-texts {
+.big-text {
+    padding-top: 10px;
+    height: 5.4vw;
+}
+
+::-webkit-input-placeholder {
+    color: #919797;
+}
+::-moz-placeholder {
+    color: #919797;
+}
+:-moz-placeholder {
+    color: #919797;
+}
+:-ms-input-placeholder {
+    color: #919797;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+.switch-btn {
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+    border-radius: 12px;
+    background: #919797;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition-duration: 400ms;
+}
+.switch-btn::after {
+    content: "";
+    height: 24px;
+    width: 24px;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0px 2px 8px 0px #0000001a;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.1);
+    transition-duration: 400ms;
+    position: absolute;
+    z-index: 1;
+}
+.switch-on {
+    background: #ed5b4e;
+}
+.switch-on::after {
+    left: 24px;
 }
 
 @media screen and (max-width: 1600px) {
@@ -1443,9 +1560,6 @@ label.required:after {
         height: calc(70vh - 80px);
     }
 
-    .menu__item__icon {
-    }
-
     .menu__items__title {
         font: 400 1rem "Manrope", sans-serif;
     }
@@ -1711,9 +1825,6 @@ label.required:after {
         display: none;
     }
 
-    .list__item__col {
-    }
-
     .list__item__col_count-sait {
         width: auto;
     }
@@ -1745,6 +1856,10 @@ label.required:after {
         margin-right: 9px;
     }
 
+    .mobile_adapt_date .list__item__col .question {
+        margin-right: 9px;
+    }
+
     .list__item__col span:not(.list__item_names .list__item__col span) {
         word-break: normal;
         line-break: auto;
@@ -1752,6 +1867,45 @@ label.required:after {
 
     .list__item__col_name-sait span {
         font: 600 1rem "Manrope", sans-serif;
+    }
+
+    .form-create-edit {
+        width: 100%;
+        border-radius: 10px;
+        padding: 26px 16px 40px 16px;
+        flex-direction: column;
+    }
+
+    .input-field {
+        align-items: inherit;
+        flex-direction: column;
+        margin-bottom: 24px;
+    }
+
+    .input-field_switch {
+        flex-direction: row;
+    }
+    
+    .switch-btn_wrapper {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .input-field__input {
+        padding: 13px;
+        width: 100%;
+    }
+
+    .input-field__label {
+        margin-bottom: 6px;
+    }
+
+    .big-text {
+        height: 144px;
+    }
+
+    .submit-button {
+        padding: 16px 20px;
     }
 }
 

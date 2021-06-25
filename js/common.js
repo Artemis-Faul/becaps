@@ -191,3 +191,47 @@ $(".uptime_mobile").click(function () {
 $("img.exclamation").closest("li").css({ background: "#FEF7F6" });
 
 
+$(".input-field__input").on("input", function () {
+    if ($(this).val()) {
+        $(this).css({ border: "0", background: "#F6F6F6" });
+    }
+});
+
+
+$('body').on('input', 'input[type="number"][maxlength]', function(){
+	if (this.value.length > this.maxLength){
+		this.value = this.value.slice(0, this.maxLength);
+	}
+});
+
+$( ".form-create-edit" ).submit(function(event) {
+    var inputsLen = $(".input_requred").length;
+    for (let i = 0; i < inputsLen; i++){
+        input = $(".input_requred").eq(i);
+        if (!input.val()) {
+            if (!input.hasClass("not_fill")) {
+                input.addClass("not_fill");
+                $('<p class="input-field__text">Это обязательное поле. Заполните его, пожалуйста</p>').insertAfter(input.closest(".input-field"));
+            }
+            
+
+            input.css({ border: "1px solid #DA0B20", background: "rgba(218, 11, 32, 0.05)" })
+            input.closest(".input-field").css({ "margin-bottom": "0" });
+            event.preventDefault();
+        }
+        else {
+            $(".input-field__text").eq(i).remove();
+            input.closest(".input-field").css({ "margin-bottom": "2.5%" });
+        }
+    }
+});
+
+$('.switch-btn').click(function(){
+    $(this).toggleClass('switch-on');
+    if ($(this).hasClass('switch-on')) {
+        $(this).trigger('on.switch');
+    } else {
+        $(this).trigger('off.switch');
+    }
+});
+
