@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
-
 * {
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -13,17 +11,15 @@ html {
 html,
 body {
     overflow-x: hidden;
-    background: #f6f6f6;
-    font-family: "Montserrat", sans-serif;
-    color: #1c2e35;
+    background: rgb(246, 246, 246);
+    font-family: Montserrat, sans-serif;
+    color: rgb(28, 46, 53);
 }
 
 .container {
     max-width: 1280px;
-    margin: 0 auto;
+    margin: 0px auto;
 }
-
-/* menu for handlend  */
 
 .left-menu {
     width: 6vh;
@@ -37,16 +33,16 @@ body {
 }
 
 .lm-title {
-    color: #ffffff;
+    color: rgb(255, 255, 255);
     display: block;
     font-size: 4.1vh;
     line-height: 4vh;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-weight: 600;
     text-decoration: none;
     margin-left: 1.5vh;
     margin-top: 1vh;
-    text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+    text-shadow: rgba(0, 0, 0, 0.9) 0px 0px 6px;
 }
 
 .hand {
@@ -54,87 +50,89 @@ body {
     margin-top: 0vh;
 }
 
-/* button starting stylings ------------------------------- */
 .lmblock {
-    color: #ccc;
+    color: rgb(204, 204, 204);
     display: block;
     position: relative;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     width: 35px;
-    font-size: 0;
+    font-size: 0px;
     cursor: pointer;
-    -webkit-transition: background 0.3s;
-    -o-transition: background 0.3s;
-    transition: background 0.3s;
+    transition: background 0.3s ease 0s;
 }
+
 .lmblock:focus {
     outline: none;
 }
 
-/* inner span stylings ------------------------------- */
 .lmblock div {
     margin-top: 1vh;
     width: 100%;
-    background: #919797;
-    display: block;
-    transition: all 0.3s;
+    background: rgb(145, 151, 151);
+    transition: all 0.3s ease 0s;
     display: block;
     position: absolute;
     top: 7px;
     height: 2px;
 }
+
 .lmblock div::before,
 .lmblock div::after {
     position: absolute;
     display: block;
     width: 100%;
     height: 2px;
-    background-color: #919797;
+    background-color: rgb(145, 151, 151);
     content: "";
 }
+
 .lmblock div::before {
     top: 10px;
 }
+
 .lmblock div::after {
     bottom: 10px;
 }
 
 .lmblock.toggle-hamburger__animx div {
-    -webkit-transition: background 0s 0.3s;
-    transition: background 0s 0.3s;
+    transition: background 0s ease 0.3s;
 }
+
 .lmblock.toggle-hamburger__animx div::before,
 .lmblock.toggle-hamburger__animx div::after {
     transition-duration: 0.3s, 0.3s;
     transition-delay: 0.3s, 0s, 0.3s;
 }
+
 .lmblock.toggle-hamburger__animx div::before {
     transition-property: top, transform, background-color;
 }
+
 .lmblock.toggle-hamburger__animx div::after {
     transition-property: bottom, transform, background-color;
 }
 
-/* when menu open: */
 .lmblock.toggle-hamburger__animx.is-active div {
-    background-color: #919797;
     background: none;
 }
+
 .lmblock.toggle-hamburger__animx.is-active div::before,
 .toggle-hamburger.toggle-hamburger__animx.is-active div::after {
-    background-color: #919797;
+    background-color: rgb(145, 151, 151);
     transition-delay: 0s, 0.3s, 0s;
 }
+
 .lmblock.toggle-hamburger__animx.is-active div::before {
-    top: 0;
-    background-color: #919797;
+    top: 0px;
+    background-color: rgb(145, 151, 151);
     transform: rotate(45deg);
 }
+
 .lmblock.toggle-hamburger__animx.is-active div::after {
-    background-color: #919797;
+    background-color: rgb(145, 151, 151);
     transition-delay: 0s, 0.3s, 0s;
-    bottom: 0;
+    bottom: 0px;
     transform: rotate(-45deg);
 }
 
@@ -144,40 +142,31 @@ body {
     background: white;
     margin-top: -150vh;
     z-index: 50;
-    -webkit-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s;
+    transition: all 0.5s ease 0s;
     display: none;
     position: fixed;
     -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: flex-start;
     -webkit-box-pack: center;
-    -ms-flex-pack: center;
 }
 
 #menuHand li {
-    display: -webkit-box;
-    display: -ms-flexbox;
     height: 70px;
     width: 100vw;
     display: flex;
     align-items: center;
     z-index: 5;
     -webkit-box-pack: center;
-    -ms-flex-pack: center;
     padding-left: 4.17%;
-    border: 1px solid #ebebeb;
+    border: 1px solid rgb(235, 235, 235);
 }
 
 #menuHand li a {
     display: flex;
     align-items: center;
     width: 100vw;
-    -webkit-transition: 0.75s;
-    -o-transition: 0.75s;
-    transition: 0.75s;
-    color: #1c2e35;
+    transition: all 0.75s ease 0s;
+    color: rgb(28, 46, 53);
     text-decoration: none;
     z-index: 5;
     font-weight: 500;
@@ -190,59 +179,52 @@ body {
 }
 
 .menu__elem_active {
-    background: #ed5b4e0a;
+    background: rgba(237, 91, 78, 0.04);
 }
 
 .menu__elem_active svg path {
-    fill: #ed5b4e;
+    fill: rgb(237, 91, 78);
 }
 
-/* end menu for handlend  */
-
 .modal_wrap {
-    width: 26.0416667%;
-    -webkit-box-sizing: border-box;
+    width: 26.0417%;
     box-sizing: border-box;
-    /* max-width: 500px; */
     overflow: hidden;
-    background: #fff;
-    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 20px;
     border-radius: 16px;
     padding-top: 2.5%;
 }
 
 .modal_thank {
-    width: 20.833333333%;
+    width: 20.8333%;
 }
 
 .modal_title {
-    font: bold 2rem "Manrope", sans-serif;
+    font: bold 2rem Manrope, sans-serif;
     margin-bottom: 2%;
-    color: #1c2e35;
+    color: rgb(28, 46, 53);
     display: block;
     text-align: center;
 }
 
 .modal_text {
     text-align: center;
-    padding: 0 20px;
-    font: 500 1rem "Manrope", sans-serif;
+    padding: 0px 20px;
+    font: 500 1rem Manrope, sans-serif;
     margin-bottom: 60px;
-    color: #1c2e35;
+    color: rgb(28, 46, 53);
 }
-
-/* Вход в систему */
 
 .modal_sub_title {
     margin-bottom: 10%;
     text-align: center;
-    color: #1c2e35;
-    font: bold 1.75rem "Montserrat", sans-serif;
+    color: rgb(28, 46, 53);
+    font: bold 1.75rem Montserrat, sans-serif;
 }
 
 .modal_sub_title span {
-    color: #ed5b4e;
+    color: rgb(237, 91, 78);
 }
 
 .modal_form {
@@ -250,36 +232,34 @@ body {
     grid-template-columns: 1fr;
     width: 100%;
     -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
 }
 
 .input_box {
     width: 100%;
     position: relative;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 0 12% 10% 12%;
+    padding: 0px 12% 10%;
     display: flex;
 }
 
 .input_box input {
     width: 100%;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 4% 1%;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
-    border: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
     outline: none;
-    font: 500 1rem "Manrope", sans-serif;
-    border-bottom: 1px solid #c7cfcf;
-    color: #1c2e35;
+    font: 500 1rem Manrope, sans-serif;
+    border-bottom: 1px solid rgb(199, 207, 207);
+    color: rgb(28, 46, 53);
 }
 
 .input_box input:focus {
-    border-color: #ed5b4e;
+    border-color: rgb(237, 91, 78);
 }
 
 .input_box svg {
@@ -291,87 +271,69 @@ body {
 }
 
 .input_box svg:hover path {
-    fill: #ed5b4e;
+    fill: rgb(237, 91, 78);
 }
 
 .eye_active path {
-    fill: #ed5b4e;
+    fill: rgb(237, 91, 78);
 }
 
 .modal_panel_wrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
     width: 100%;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 0 12% 10% 12%;
+    padding: 0px 12% 10%;
 }
 
 .forget {
     text-decoration: none;
-    font: 700 1rem "Manrope", sans-serif;
-    color: #919797;
+    font: 700 1rem Manrope, sans-serif;
+    color: rgb(145, 151, 151);
 }
 
 .btn_send {
     width: 100%;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 3.6%;
-    color: #fff;
+    color: rgb(255, 255, 255);
     text-align: center;
-    background: -o-linear-gradient(359.74deg, #ea495c -1.3%, #f37c35 100.96%);
-    background: linear-gradient(90.26deg, #ea495c -1.3%, #f37c35 100.96%);
-    border-radius: 0 0 14px 14px;
-    font: 600 1.125rem "Manrope", sans-serif;
+    background: linear-gradient(90.26deg, rgb(234, 73, 92) -1.3%, rgb(243, 124, 53) 100.96%);
+    border-radius: 0px 0px 14px 14px;
+    font: 600 1.125rem Manrope, sans-serif;
     border: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     outline: none;
     cursor: pointer;
 }
 
 .btn_send:hover {
-    background: -o-linear-gradient(359.04deg, #e2394d 0.09%, #fb7220 105.35%);
-    background: linear-gradient(90.96deg, #e2394d 0.09%, #fb7220 105.35%);
+    background: linear-gradient(90.96deg, rgb(226, 57, 77) 0.09%, rgb(251, 114, 32) 105.35%);
 }
 
 .btn_send:active {
-    background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-        -o-linear-gradient(359.04deg, #e2394d 0.09%, #fb7220 105.35%);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-        linear-gradient(90.96deg, #e2394d 0.09%, #fb7220 105.35%);
+        linear-gradient(90.96deg, rgb(226, 57, 77) 0.09%, rgb(251, 114, 32) 105.35%);
 }
 
 .thank_send {
     width: 100%;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 16px;
-    color: #fff;
+    color: rgb(255, 255, 255);
     text-align: center;
-    background: -o-linear-gradient(359.74deg, #ea495c -1.3%, #f37c35 100.96%);
-    background: linear-gradient(90.26deg, #ea495c -1.3%, #f37c35 100.96%);
-    border-radius: 0 0 14px 14px;
-    font: 600 1.125rem "Manrope", sans-serif;
+    background: linear-gradient(90.26deg, rgb(234, 73, 92) -1.3%, rgb(243, 124, 53) 100.96%);
+    border-radius: 0px 0px 14px 14px;
+    font: 600 1.125rem Manrope, sans-serif;
     border: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     outline: none;
     cursor: pointer;
     opacity: 0.6;
-    -webkit-transition: 0.2s;
-    -o-transition: 0.2s;
-    transition: 0.2s;
+    transition: all 0.2s ease 0s;
     display: block;
     text-decoration: none;
 }
@@ -390,8 +352,8 @@ body {
     display: inline-block;
     cursor: pointer;
     padding-left: 35px;
-    color: #1c2e35;
-    font: 500 1rem "Manrope", sans-serif;
+    color: rgb(28, 46, 53);
+    font: 500 1rem Manrope, sans-serif;
 }
 
 .checkbox label::before,
@@ -404,7 +366,7 @@ body {
 .checkbox label::before {
     height: 22px;
     width: 22px;
-    border: 2px solid #ed5b4e;
+    border: 2px solid rgb(237, 91, 78);
     border-radius: 3px;
     left: 0px;
     top: -2px;
@@ -413,10 +375,8 @@ body {
 .checkbox label::after {
     height: 7px;
     width: 14px;
-    border-left: 3px solid #fff;
-    border-bottom: 3px solid #fff;
-    -webkit-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
+    border-left: 3px solid rgb(255, 255, 255);
+    border-bottom: 3px solid rgb(255, 255, 255);
     transform: rotate(-45deg);
     left: 4.5px;
     top: 4px;
@@ -431,7 +391,7 @@ body {
 }
 
 .checkbox input[type="checkbox"]:checked + label::before {
-    background: #ed5b4e;
+    background: rgb(237, 91, 78);
 }
 
 .disabled {
@@ -442,13 +402,13 @@ body {
     position: absolute;
     top: 105%;
     display: none;
-    right: 0;
-    color: #da0b20;
-    font: 400 0.7rem "Manrope", sans-serif;
+    right: 0px;
+    color: rgb(218, 11, 32);
+    font: 400 0.7rem Manrope, sans-serif;
 }
 
 .input_box:active {
-    border-color: #da0b20;
+    border-color: rgb(218, 11, 32);
 }
 
 .error_text {
@@ -456,11 +416,11 @@ body {
 }
 
 .padding {
-    padding: 0 70px;
+    padding: 0px 70px;
 }
 
 .padding_mob {
-    padding: 0 70px;
+    padding: 0px 70px;
 }
 
 .margin {
@@ -476,32 +436,25 @@ body {
 }
 
 footer {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding-bottom: 25px;
-    /* display: none; */
 }
 
 .footer_title {
     margin-bottom: 6px;
-    color: #9c9ea6;
-    font: 400 1rem "Manrope", sans-serif;
+    color: rgb(156, 158, 166);
+    font: 400 1rem Manrope, sans-serif;
 }
 
 .footer_title img {
@@ -509,8 +462,8 @@ footer {
 }
 
 footer .footer_text {
-    color: #9c9ea6;
-    font: 300 0.75rem "Manrope", sans-serif;
+    color: rgb(156, 158, 166);
+    font: 300 0.75rem Manrope, sans-serif;
 }
 
 .header {
@@ -518,37 +471,30 @@ footer .footer_text {
     height: 7.4%;
     z-index: 100;
     position: fixed;
-    background: #fff;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    background: rgb(255, 255, 255);
     display: flex;
     -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     -webkit-box-pack: end;
-    -ms-flex-pack: end;
     justify-content: flex-end;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 4px;
 }
 
 .logo {
-    font: 700 1.5rem "Manrope", sans-serif;
-    color: #ed5b4e;
+    font: 700 1.5rem Manrope, sans-serif;
+    color: rgb(237, 91, 78);
     position: absolute;
     left: 45%;
     margin-right: 10px;
 }
 
 .logo_black {
-    color: #000;
+    color: rgb(0, 0, 0);
 }
 
 .profile {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     margin-right: 8.3334%;
 }
@@ -556,29 +502,25 @@ footer .footer_text {
 .prev-icon {
     width: 44px;
     height: 44px;
-    background: #ed5b4e33;
+    background: rgba(237, 91, 78, 0.2);
     border-radius: 8px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
     -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     margin-right: 14px;
 }
 
 .prev-icon__text {
-    font: 800 1rem "Manrope", sans-serif;
-    color: #ed5b4e;
+    font: 800 1rem Manrope, sans-serif;
+    color: rgb(237, 91, 78);
     text-transform: uppercase;
 }
 
 .user-name {
-    font: 500 1rem "Manrope", sans-serif;
-    color: #1c2e35;
+    font: 500 1rem Manrope, sans-serif;
+    color: rgb(28, 46, 53);
 }
 
 .main {
@@ -587,36 +529,36 @@ footer .footer_text {
 
 .menu {
     width: 6.5%;
-    background: #fff;
-    border: 1px solid #ebebeb;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(235, 235, 235);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-top: 7.4vh;
-    height: calc(100vh - 7.4vh);
+    height: calc(92.6vh);
     position: fixed;
 }
 
 .menu__item {
     height: 6.3vw;
-    border-bottom: 1px solid #ebebeb;
-    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    border-top: 1px solid rgb(235, 235, 235);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #fff;
+    background: rgb(255, 255, 255);
     text-decoration: none;
 }
 
 .menu__item_active svg path {
-    fill: #ed5b4e;
+    fill: rgb(237, 91, 78);
 }
 
 .menu__item_active {
     height: 6.3vw;
-    border-bottom: 1px solid #ebebeb;
-    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    border-top: 1px solid rgb(235, 235, 235);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -632,11 +574,10 @@ footer .footer_text {
 }
 
 .menu__items__title {
-    font: 500 0.8125rem "Manrope", sans-serif;
+    font: 500 0.8125rem / 18px Manrope, sans-serif;
     text-align: center;
-    line-height: 18px;
     padding: 0px 35px;
-    color: #919797;
+    color: rgb(145, 151, 151);
 }
 
 .content {
@@ -655,25 +596,25 @@ footer .footer_text {
 }
 
 .content__title {
-    font: 600 1.5rem "Manrope", sans-serif;
-    color: #1c2e35;
+    font: 600 1.5rem Manrope, sans-serif;
+    color: rgb(28, 46, 53);
 }
 
 .content__title_number {
-    color: #919797;
+    color: rgb(145, 151, 151);
     font-weight: 700;
 }
 
 .btn_add {
     text-decoration: none;
-    background: linear-gradient(92.96deg, #ea495c -5.24%, #f37c35 100.77%);
+    background: linear-gradient(92.96deg, rgb(234, 73, 92) -5.24%, rgb(243, 124, 53) 100.77%);
     width: 206px;
     height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    transition: 0.7s;
+    transition: all 0.7s ease 0s;
 }
 
 .btn_add img {
@@ -682,27 +623,27 @@ footer .footer_text {
 }
 
 .btn_add span {
-    font: 600 1rem "Manrope", sans-serif;
-    color: #ffffff;
+    font: 600 1rem Manrope, sans-serif;
+    color: rgb(255, 255, 255);
 }
 
 .btn_add:hover {
-    background: linear-gradient(90.96deg, #e2394d 0.09%, #fb7220 105.35%);
-    transition: 0.7s;
+    background: linear-gradient(90.96deg, rgb(226, 57, 77) 0.09%, rgb(251, 114, 32) 105.35%);
+    transition: all 0.7s ease 0s;
 }
 
 .btn_add:active {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-        linear-gradient(90.96deg, #e2394d 0.09%, #fb7220 105.35%);
+        linear-gradient(90.96deg, rgb(226, 57, 77) 0.09%, rgb(251, 114, 32) 105.35%);
 }
 
 .list {
-    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 10px 20px);
     margin-bottom: 54px;
 }
 
 .list li {
-    background: #fff;
+    background: rgb(255, 255, 255);
 }
 
 .list__item {
@@ -710,34 +651,34 @@ footer .footer_text {
     margin-left: 1.25%;
     margin-right: 1.25%;
     display: flex;
-    border-bottom: 1px solid #e9eaea;
+    border-bottom: 1px solid rgb(233, 234, 234);
 }
 
 .list__item_last {
-    background: #fff;
+    background: rgb(255, 255, 255);
     height: 64px;
     display: flex;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0px 0px 10px 10px;
     align-items: center;
     justify-content: flex-end;
 }
 
 .list__item_names {
     height: 3.02083vw;
-    background: rgba(238, 238, 238, 1);
-    border-radius: 10px 10px 0 0;
+    background: rgb(238, 238, 238);
+    border-radius: 10px 10px 0px 0px;
     border-bottom: 0px;
     display: flex;
 }
 
 .list__item_names .list__item__col_adress span {
-    color: #1c2e35;
+    color: rgb(28, 46, 53);
 }
 
 .list__item__col {
     display: flex;
     align-items: center;
-    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 10px 20px);
 }
 
 .list__item__col_name {
@@ -751,8 +692,8 @@ footer .footer_text {
 }
 
 .list__item__col > span {
-    font: 500 1rem "Manrope", sans-serif;
-    color: #1c2e35;
+    font: 500 1rem Manrope, sans-serif;
+    color: rgb(28, 46, 53);
 }
 
 .list__col_name {
@@ -782,7 +723,7 @@ footer .footer_text {
 }
 
 .arrow_active svg path {
-    fill: #ed5b4e;
+    fill: rgb(237, 91, 78);
 }
 
 .list__item__col_inn {
@@ -796,14 +737,13 @@ footer .footer_text {
 }
 
 .list__item__col_adress span {
-    color: #919797;
-    font: 500 1rem "Manrope", sans-serif;
+    color: rgb(145, 151, 151);
+    font: 500 1rem Manrope, sans-serif;
 }
 
 .list__item__col_count-sait span {
-    font: 600 1rem "Manrope", sans-serif;
-    line-height: 22px;
-    color: #ed5b4e;
+    font: 600 1rem / 22px Manrope, sans-serif;
+    color: rgb(237, 91, 78);
 }
 
 .count-site {
@@ -825,13 +765,13 @@ footer .footer_text {
 
 .arrow-selector_left,
 .arrow-selector_right {
-    margin: 2px 0px 0 5px;
+    margin: 2px 0px 0px 5px;
     width: 12px;
     height: 15px;
 }
 
 .arrow-selector:hover path {
-    stroke: #ed5b4e;
+    stroke: rgb(237, 91, 78);
 }
 
 .numbers {
@@ -839,22 +779,22 @@ footer .footer_text {
 }
 
 .number-page {
-    font: 700 1rem "Manrope", sans-serif;
-    color: #919797;
-    margin: 0 4px;
+    font: 700 1rem Manrope, sans-serif;
+    color: rgb(145, 151, 151);
+    margin: 0px 4px;
 }
 
 .number-page:hover {
-    color: #ed5b4e;
+    color: rgb(237, 91, 78);
 }
 
 .number-page_ellipsis {
-    font: 700 1rem "Manrope", sans-serif;
-    color: #919797;
+    font: 700 1rem Manrope, sans-serif;
+    color: rgb(145, 151, 151);
 }
 
 .number-page_active {
-    color: #ed5b4e;
+    color: rgb(237, 91, 78);
 }
 
 .select-number_of_pages {
@@ -863,22 +803,22 @@ footer .footer_text {
     justify-content: end;
     margin-right: 32px;
 }
+
 .select__text {
-    font: 400 0.875rem "Manrope", sans-serif;
-    color: #919797;
+    font: 400 0.875rem Manrope, sans-serif;
+    color: rgb(145, 151, 151);
     margin-right: 5px;
 }
 
 .selection {
-    font: 400 0.875rem "Manrope", sans-serif;
+    font: 400 0.875rem Manrope, sans-serif;
     padding: 8px;
-    margin: 0;
+    margin: 0px 5px 0px 0px;
     width: 46px;
-    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-    border: 1px solid #e9eaea;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 0px 1px;
+    border: 1px solid rgb(233, 234, 234);
     border-radius: 5px;
-    margin-right: 5px;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     background-image: url("../img/icon/select_arrow.svg");
     appearance: none;
     background-repeat: no-repeat, repeat;
@@ -889,8 +829,6 @@ footer .footer_text {
 .mobile_adapt {
     display: flex;
 }
-
-/* PAGES SAITS*/
 
 .sait-plight {
     display: flex;
@@ -910,9 +848,8 @@ footer .footer_text {
 }
 
 .sait-status__span {
-    font-family: Manrope;
-    font: 0.875rem "Manrope", sans-serif;
-    color: #1c2e35;
+    font: 0.875rem Manrope, sans-serif;
+    color: rgb(28, 46, 53);
 }
 
 .content_uptime {
@@ -1007,20 +944,20 @@ footer .footer_text {
 }
 
 .list__item__col_name-sait span {
-    color: #ed5b4e;
+    color: rgb(237, 91, 78);
 }
 
 .list__item__col_client span {
-    color: #919797;
+    color: rgb(145, 151, 151);
 }
 
 .block-warnings {
     margin-top: 160px;
     width: 13.5416%;
     margin-right: 2%;
-    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 10px 20px);
     border-radius: 10px;
-    background: #fff;
+    background: rgb(255, 255, 255);
     padding: 24px;
     height: 100%;
 }
@@ -1032,14 +969,14 @@ footer .footer_text {
 .block-warnings__span {
     margin-bottom: 18px;
     padding-bottom: 16px;
-    border-bottom: 1px solid #e9eaea;
-    font: 400 0.75rem "Manrope", sans-serif;
+    border-bottom: 1px solid rgb(233, 234, 234);
+    font: 400 0.75rem Manrope, sans-serif;
     display: block;
 }
 
 .block-warnings__link {
-    color: #ed5b4e;
-    font: 600 1rem "Manrope", sans-serif;
+    color: rgb(237, 91, 78);
+    font: 600 1rem Manrope, sans-serif;
 }
 
 .uptime-hint {
@@ -1048,7 +985,7 @@ footer .footer_text {
     top: 45px;
     padding: 10px 16px;
     right: 15vw;
-    background: #1c2e35;
+    background: rgb(28, 46, 53);
     opacity: 0.95;
     border-radius: 4px;
     display: none;
@@ -1056,8 +993,8 @@ footer .footer_text {
 }
 
 .uptime-hint__span {
-    color: #fff;
-    font: 0.875rem "Manrope", sans-serif;
+    color: rgb(255, 255, 255);
+    font: 0.875rem Manrope, sans-serif;
 }
 
 .uptime-hint__span span {
@@ -1073,10 +1010,10 @@ footer .footer_text {
 }
 
 .more-sait-error__span {
-    font: 600 1rem "Manrope", sans-serif;
-    color: #ed5b4e;
+    font: 600 1rem Manrope, sans-serif;
+    color: rgb(237, 91, 78);
     padding: 4px 8px;
-    background: #ee5c4f33;
+    background: rgba(238, 92, 79, 0.2);
     border-radius: 8px;
     cursor: pointer;
     display: none;
@@ -1087,8 +1024,8 @@ footer .footer_text {
 }
 
 .shield {
+    stroke: rgb(237, 91, 78);
     fill: none !important;
-    stroke: #ed5b4e;
 }
 
 .content__title_arrow {
@@ -1098,14 +1035,13 @@ footer .footer_text {
 
 .content__title__arrow {
     margin-right: 14px;
-    margin-bottom: 8px;
 }
 
 .form-create-edit {
     margin-top: 12px;
     width: 60%;
-    background: #ffffff;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 20px;
     border-radius: 16px;
     padding: 2.63% 37px 3% 43px;
     margin-bottom: 50px;
@@ -1118,25 +1054,28 @@ footer .footer_text {
 }
 
 .input-field__text {
-    font-size: 11px;
-    color: #da0b20;
-    font: 400 0.6875rem "Manrope", sans-serif;
+    color: rgb(218, 11, 32);
+    font: 400 0.6875rem Manrope, sans-serif;
     text-align: end;
     margin-bottom: 2%;
 }
 
 .submit-button {
     padding: 1.7% 20px;
-    background: linear-gradient(92.96deg, #ea495c -5.24%, #f37c35 100.77%);
+    background: linear-gradient(92.96deg, rgb(234, 73, 92) -5.24%, rgb(243, 124, 53) 100.77%);
     border-radius: 10px;
-    border: 0;
-    font: 600 1rem "Manrope", sans-serif;
-    color: #fff;
+    border: 0px;
+    font: 600 1rem Manrope, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.submit-button_404 {
+    padding: 16px 20px;
 }
 
 .cancel-button {
-    font: 600 1rem "Manrope", sans-serif;
-    color: #919797;
+    font: 600 1rem Manrope, sans-serif;
+    color: rgb(145, 151, 151);
     margin-right: 28px;
 }
 
@@ -1152,7 +1091,7 @@ footer .footer_text {
 }
 
 .input-field__label {
-    font: 600 1rem "Manrope", sans-serif;
+    font: 600 1rem Manrope, sans-serif;
     display: block;
 }
 
@@ -1162,16 +1101,15 @@ footer .footer_text {
 }
 
 .input-field__input {
-    padding: 1.5625%;
+    padding: 1.5625% 1.5625% 1.5625% 15px;
     width: 50%;
-    background: #f6f6f6;
+    background: rgb(246, 246, 246);
     border-radius: 10px;
-    border: 0;
-    padding-left: 15px;
-    font: 500 1em "Manrope", sans-serif;
+    border: 0px;
+    font: 500 1em Manrope, sans-serif;
 }
 
-label.required:after {
+label.required::after {
     color: red;
     content: "    *";
     padding-left: 3px;
@@ -1183,22 +1121,13 @@ label.required:after {
 }
 
 ::-webkit-input-placeholder {
-    color: #919797;
-}
-::-moz-placeholder {
-    color: #919797;
-}
-:-moz-placeholder {
-    color: #919797;
-}
-:-ms-input-placeholder {
-    color: #919797;
+    color: rgb(145, 151, 151);
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+    appearance: none;
+    margin: 0px;
 }
 
 textarea {
@@ -1210,32 +1139,57 @@ textarea {
     width: 48px;
     height: 24px;
     border-radius: 12px;
-    background: #919797;
+    background: rgb(145, 151, 151);
     z-index: 0;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     border: none;
     cursor: pointer;
     position: relative;
     transition-duration: 400ms;
 }
+
 .switch-btn::after {
     content: "";
     height: 24px;
     width: 24px;
     border-radius: 17px;
-    background: #fff;
-    box-shadow: 0px 2px 8px 0px #0000001a;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px, rgba(0, 0, 0, 0.1) 0px 2px 10px;
     transition-duration: 400ms;
     position: absolute;
     z-index: 1;
 }
+
 .switch-on {
-    background: #ed5b4e;
+    background: rgb(237, 91, 78);
 }
+
 .switch-on::after {
     left: 24px;
+}
+
+.content_404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+}
+
+.center-error-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error404__img {
+    margin-bottom: 16px;
+}
+
+.error404__text {
+    font: 600 1.5rem Manrope, sans-serif;
+    margin-bottom: 42px;
 }
 
 @media screen and (max-width: 1600px) {
@@ -1309,16 +1263,15 @@ textarea {
 
 @media screen and (max-width: 1440px) {
     html {
-        font: 0.875rem "Manrope", sans-serif;
-        font-size: 14px;
+        font: 14px Manrope, sans-serif;
     }
 
     .modal_title {
-        font: bold 1.65rem "Manrope", sans-serif;
+        font: bold 1.65rem Manrope, sans-serif;
     }
 
     .modal_sub_title {
-        font: bold 1.65rem "Manrope", sans-serif;
+        font: bold 1.65rem Manrope, sans-serif;
     }
 
     .btn_send {
@@ -1326,7 +1279,7 @@ textarea {
     }
 
     .modal_text {
-        font: 500 0.875rem "Manrope", sans-serif;
+        font: 500 0.875rem Manrope, sans-serif;
         margin-bottom: 40px;
     }
 
@@ -1394,17 +1347,18 @@ textarea {
         margin-right: 13px;
     }
 }
+
 @media screen and (max-width: 1280px) {
     .list__col_client {
-        margin-right: 0;
+        margin-right: 0px;
     }
 
     .padding {
-        padding: 0 45px;
+        padding: 0px 45px;
     }
 
     .padding_mob {
-        padding: 0 45px;
+        padding: 0px 45px;
     }
 
     .modal_wrap {
@@ -1419,9 +1373,9 @@ textarea {
 
     .sait-plight {
         display: none;
-        background: #1c2e35;
+        background: rgb(28, 46, 53);
         border-radius: 4px;
-        padding: 16px 16px 6px 16px;
+        padding: 16px 16px 6px;
         left: 38vw;
     }
 
@@ -1451,12 +1405,10 @@ textarea {
     }
 
     .uptime_mobile {
-        margin: 0 auto;
-
-        /* BeCaps Light Text */
-        color: #919797;
-        font: 500 1.125rem "Manrope", sans-serif;
-        border-bottom: 2px dashed #919797;
+        margin: 0px auto;
+        color: rgb(145, 151, 151);
+        font: 500 1.125rem Manrope, sans-serif;
+        border-bottom: 2px dashed rgb(145, 151, 151);
     }
 
     .content_uptime {
@@ -1466,7 +1418,7 @@ textarea {
     }
 
     .sait-status__span {
-        color: #fff;
+        color: rgb(255, 255, 255);
     }
 
     .content-top {
@@ -1562,7 +1514,7 @@ textarea {
     }
 
     .menu__items__title {
-        font: 400 1rem "Manrope", sans-serif;
+        font: 400 1rem Manrope, sans-serif;
     }
 
     .logo {
@@ -1596,15 +1548,15 @@ textarea {
     }
 
     .padding {
-        padding: 0 15px;
+        padding: 0px 15px;
     }
 
     .padding_mob {
-        padding: 0 15px;
+        padding: 0px 15px;
     }
 
     .modal_sub_title {
-        font: bold 1.375rem "Manrope", sans-serif;
+        font: bold 1.375rem Manrope, sans-serif;
         margin-bottom: 24px;
     }
 
@@ -1613,7 +1565,7 @@ textarea {
     }
 
     .modal_title {
-        font: bold 1.375rem "Manrope", sans-serif;
+        font: bold 1.375rem Manrope, sans-serif;
         margin-bottom: 8px;
     }
 }
@@ -1642,7 +1594,6 @@ textarea {
 
     .modal_wrap {
         width: 60%;
-        /* padding-top: 11.428571429%; */
     }
 }
 
@@ -1654,24 +1605,27 @@ textarea {
     .input_box svg {
         bottom: 35%;
     }
+
     .main_forms {
-        padding: 0 5.555555556%;
+        padding: 0px 5.55556%;
     }
 
     .modal_wrap {
         width: 100%;
-        padding-top: 11.428571429%;
+        padding-top: 11.4286%;
     }
 
     footer {
         bottom: auto;
     }
+
     .header {
         justify-content: unset;
         height: 60px;
     }
+
     .profile {
-        margin-right: 0;
+        margin-right: 0px;
         padding-left: 14px;
     }
 
@@ -1684,13 +1638,17 @@ textarea {
     }
 
     .content {
-        margin-left: 0;
+        margin-left: 0px;
         padding-top: 72px;
         width: 100%;
     }
 
     .content__title {
-        font: 600 1.125rem "Manrope", sans-serif;
+        font: 600 1.125rem Manrope, sans-serif;
+    }
+
+    .content__title__arrow {
+        margin-bottom: 8px;
     }
 
     .btn_add {
@@ -1707,7 +1665,7 @@ textarea {
     }
 
     .btn_add img {
-        margin-right: 0;
+        margin-right: 0px;
         width: 18px;
     }
 
@@ -1725,19 +1683,18 @@ textarea {
         align-items: end;
         padding-top: 19px;
         justify-content: space-between;
-        margin: 0 16px;
-        /* margin-right: 16px; */
+        margin: 0px 16px;
     }
 
     .list__item__col_name {
-        font: 500 0.875rem "Manrope", sans-serif;
+        font: 500 0.875rem Manrope, sans-serif;
         padding-left: 0px;
-        color: #919797;
+        color: rgb(145, 151, 151);
     }
 
     .list__item__col_inn span {
-        font: 500 0.875rem "Manrope", sans-serif;
-        color: #919797;
+        font: 500 0.875rem Manrope, sans-serif;
+        color: rgb(145, 151, 151);
     }
 
     .list__item__col_adress {
@@ -1745,7 +1702,7 @@ textarea {
     }
 
     .list__item__col_adress span {
-        font: 500 0.875rem "Manrope", sans-serif;
+        font: 500 0.875rem Manrope, sans-serif;
     }
 
     .list__item_last {
@@ -1754,6 +1711,7 @@ textarea {
         width: 100vw;
         height: 100%;
     }
+
     .page-selector {
         position: inherit;
         width: 100vw;
@@ -1767,7 +1725,7 @@ textarea {
     }
 
     .select-number_of_pages {
-        padding: 5px 0 25px 0;
+        padding: 5px 0px 25px;
         margin-right: 0px;
     }
 
@@ -1783,7 +1741,7 @@ textarea {
         margin-right: 4.17%;
         width: 9vw;
         height: 11vw;
-        margin-bottom: 0;
+        margin-bottom: 0px;
     }
 
     .content-top {
@@ -1799,11 +1757,11 @@ textarea {
 
     .content_uptime {
         width: 100%;
-        margin-left: 0;
+        margin-left: 0px;
     }
+
     .sait-plight {
-        margin: 0 auto;
-        margin-bottom: 20px;
+        margin: 0px auto 20px;
         z-index: 1;
     }
 
@@ -1812,7 +1770,7 @@ textarea {
     }
 
     .list__item__col_name-sait {
-        padding-left: 0;
+        padding-left: 0px;
         width: calc(100vw - 32px);
         margin-bottom: 10px;
     }
@@ -1846,7 +1804,7 @@ textarea {
     }
 
     .mobile_adapt_date .list__item__col span {
-        color: #919797;
+        color: rgb(145, 151, 151);
     }
 
     .mobile_adapt_date .list__item__col img {
@@ -1867,13 +1825,13 @@ textarea {
     }
 
     .list__item__col_name-sait span {
-        font: 600 1rem "Manrope", sans-serif;
+        font: 600 1rem Manrope, sans-serif;
     }
 
     .form-create-edit {
         width: 100%;
         border-radius: 10px;
-        padding: 26px 16px 40px 16px;
+        padding: 26px 16px 40px;
         flex-direction: column;
     }
 
@@ -1886,7 +1844,7 @@ textarea {
     .input-field_switch {
         flex-direction: row;
     }
-    
+
     .switch-btn_wrapper {
         display: flex;
         justify-content: flex-end;
@@ -1908,28 +1866,43 @@ textarea {
     .submit-button {
         padding: 16px 20px;
     }
+
+    .submit-button_404 {
+        position: absolute;
+        bottom: 24px;
+        left: 16px;
+        width: calc(100vw - 32px);
+        text-align: center;
+    }
+
+    .error404__img {
+        width: 158.76px;
+        height: 66px;
+    }
+
+    .error404__text {
+        font: 600 1rem Manrope, sans-serif;
+    }
 }
 
 @media screen and (max-width: 576px) {
     .padding_mob {
-        padding: 0;
+        padding: 0px;
     }
 
     .modal_panel_wrap {
-        max-width: auto;
         width: auto;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-        -ms-flex-direction: column;
         flex-direction: column;
     }
 
     .input_box {
-        padding: 0 7.142857143%;
+        padding: 0px 7.14286%;
     }
 
     .modal_form {
-        grid-gap: 35px;
+        gap: 35px;
     }
 
     .modal_text br {
@@ -1937,13 +1910,13 @@ textarea {
     }
 
     .forget {
-        margin-top: 8.928571429%;
+        margin-top: 8.92857%;
     }
 }
 
 @media screen and (max-width: 355px) {
     .modal_form {
-        grid-gap: 25px;
+        gap: 25px;
     }
 
     .modal_sub_title {
