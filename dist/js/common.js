@@ -156,35 +156,22 @@ function sortRecords(arrowData, arrowDirect) {
         var img = 0;
         if (arrowData == "Название") {
             (a = $(a).find(".list__item__col_name span")), (b = $(b).find(".list__item__col_name span"));
-        }
-        else if (arrowData == "ИНН") {
+        } else if (arrowData == "ИНН") {
             (a = $(a).find(".list__item__col_inn span")), (b = $(b).find(".list__item__col_inn span"));
-        }
-        else if (arrowData == "Количество") {
-            (a = $(a).find(".list__item__col_count-sait span")),
-                (b = $(b).find(".list__item__col_count-sait span"));
-        }
-        else if (arrowData == "Клиенты") {
-            (a = $(a).find(".list__item__col_client span")),
-                (b = $(b).find(".list__item__col_client span"));
-        }
-        else if (arrowData == "Uptime") {
-            (a = $(a).find(".list__item__col_uptime span")),
-                (b = $(b).find(".list__item__col_uptime span"));
-        }
-        else if (arrowData == "Проверяется") {
-            (a = $(a).find(".list__item__col_test img")),
-                (b = $(b).find(".list__item__col_test img"));
+        } else if (arrowData == "Количество") {
+            (a = $(a).find(".list__item__col_count-sait span")), (b = $(b).find(".list__item__col_count-sait span"));
+        } else if (arrowData == "Клиенты") {
+            (a = $(a).find(".list__item__col_client span")), (b = $(b).find(".list__item__col_client span"));
+        } else if (arrowData == "Uptime") {
+            (a = $(a).find(".list__item__col_uptime span")), (b = $(b).find(".list__item__col_uptime span"));
+        } else if (arrowData == "Проверяется") {
+            (a = $(a).find(".list__item__col_test img")), (b = $(b).find(".list__item__col_test img"));
             img = 1;
-        }
-        else if (arrowData == "Bitrix") {
-            (a = $(a).find(".list__col_bitrix img")),
-                (b = $(b).find(".list__col_bitrix img"));
+        } else if (arrowData == "Bitrix") {
+            (a = $(a).find(".list__item__col_bitrix img")), (b = $(b).find(".list__item__col_bitrix img"));
             img = 1;
-        }
-        else if (arrowData == "Доступ") {
-            (a = $(a).find(".list__col_access img")),
-                (b = $(b).find(".list__col_access img"));
+        } else if (arrowData == "Доступ") {
+            (a = $(a).find(".list__item__col_access img")), (b = $(b).find(".list__item__col_access img"));
             img = 1;
         }
 
@@ -201,7 +188,7 @@ function sortRecords(arrowData, arrowDirect) {
         $('[data-title="' + arrowData + '"]')
             .not(".arrow_bottom")
             .addClass("arrow_active");
-        
+
         if (img) {
             return $(a).attr("alt") > $(b).attr("alt") ? 1 : -1;
         }
