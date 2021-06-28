@@ -16,6 +16,10 @@ body {
     color: rgb(28, 46, 53);
 }
 
+.bold_span {
+    font-weight: 600;
+}
+
 .container {
     max-width: 1280px;
     margin: 0px auto;
@@ -592,7 +596,7 @@ footer .footer_text {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 0.9854%;
+    margin-bottom: 15px;
 }
 
 .content__title {
@@ -640,6 +644,7 @@ footer .footer_text {
 .list {
     filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 10px 20px);
     margin-bottom: 54px;
+    width: 100%;
 }
 
 .list li {
@@ -1228,6 +1233,43 @@ textarea {
     top: 630px;
 }
 
+.content_client{width: 83.334%;}
+
+.client_wrapper{
+    display: flex;
+}
+
+.client__data {
+    margin-right: 1.6666%;
+    width: 22.018%;
+    filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 10px 20px);
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+    padding: 24px 20px;
+    height: 100%;
+}
+
+.client__data__info {
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.client__data__edit {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.client__data__span {
+    font: 500 1rem Manrope, sans-serif;
+}
+
+.client__data__span_name {
+    margin-bottom: 5px;
+    color: #919797;
+    font-size: 0.875rem;
+}
+
 @media screen and (max-width: 1600px) {
     .list__item__col span:not(.list__item_names .list__item__col span) {
         word-break: break-all;
@@ -1258,6 +1300,10 @@ textarea {
     .content_uptime {
         width: 75%;
         margin-left: 11.4583%;
+    }
+
+    .content_client {
+        width: 83.334%;
     }
 
     .list__col_uptime {
@@ -1958,7 +2004,9 @@ textarea {
         font: 600 1rem Manrope, sans-serif;
     }
 
-    #star_4,#star_5,#star_6 {
+    #star_4,
+    #star_5,
+    #star_6 {
         display: none;
     }
 

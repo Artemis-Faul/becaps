@@ -5,6 +5,7 @@ function changeMenu(menuPosition) {
         if (window.matchMedia("(min-width: 1025px)").matches) {
             $(".content").css({ "margin-left": "5.2083%" });
             $(".content_uptime").css({ "margin-right": "1.6666%", "margin-left": "2.2083%" });
+            $(".content_client").css({ "margin-right": "1.6666%", "margin-left": "5.2083%" });
         } else if (window.matchMedia("(min-width: 768px)").matches) {
             $(".content").css({ "margin-right": "0", "margin-left": "5.2083%" });  
         } else {
@@ -14,6 +15,9 @@ function changeMenu(menuPosition) {
         $(".switch-menu svg").html(
             '<svg class="menu__item__icon" width="38" height="27" viewBox="0 0 38 27" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="36" height="25" rx="2" stroke="#919797" stroke-width="2"/><path d="M29 1L29 26" stroke="#919797" stroke-width="2"/></svg>'
         );
+        if (window.matchMedia("(min-width: 1920px)").matches) {
+            $(".content_uptime").css({ "margin-right": "1.6666%", "margin-left": "5.2083%" });
+        }
         Cookies.set("menu_position", "2");
     } else {
         if (window.matchMedia("(min-width: 1025px)").matches) {
@@ -21,6 +25,7 @@ function changeMenu(menuPosition) {
             $(".content_uptime").css({ "margin-left": "11.4583%", "margin-right": "1.6666%" });
             if (window.matchMedia("(max-width: 1600px)").matches) {
                 $(".content_uptime").css({ "margin-left": "8.4583%" });
+                $(".content_client").css({ "margin-left": "11.4583%" });
             }
         } else if (window.matchMedia("(min-width: 768px)").matches) {
             $(".content").css({ "margin-right": "0", "margin-left": "15.4583%" });
