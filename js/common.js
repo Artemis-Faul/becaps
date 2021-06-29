@@ -97,7 +97,7 @@ if (window.matchMedia("(min-width: 1025px)").matches) {
 
 if (window.matchMedia("(max-width: 1024px)").matches) {
     $(".block-warnings").appendTo(".content_uptime .content-top");
-    $(".content_uptime .content-top").append('<span class="uptime_mobile">Что такое UpTime?</span>');
+    $(".uptime .content-top").append('<span class="uptime_mobile">Что такое UpTime?</span>');
     $(".uptime-hint__icon").appendTo(".content_uptime .content__title");
     $(".sait-plight").css({ display: "none" });
     $(".uptime-hint").appendTo(".content_uptime .content-top");
@@ -198,10 +198,13 @@ $(".input-field__input").on("input", function () {
 });
 
 
-$('body').on('input', 'input[type="number"][maxlength]', function(){
+$('body').on('input', '.input_number', function(){
 	if (this.value.length > this.maxLength){
 		this.value = this.value.slice(0, this.maxLength);
-	}
+    }
+    if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+    }
 });
 
 $( ".form-create-edit" ).submit(function(event) {
@@ -235,3 +238,55 @@ $('.switch-btn').click(function(){
     }
 });
 
+(function($) {
+  $(function() {
+    $("ul.tabs__caption").on("click", "li:not(.active)", function() {
+      $(this)
+        .addClass("active")
+        .siblings()
+        .removeClass("active")
+        .closest("div.tabs")
+        .find("div.tabs__content")
+        .removeClass("active")
+        .eq($(this).index())
+        .addClass("active");
+    if ($(".tabs__content").eq(0).hasClass("active")) {
+        $(".btn_add").not(".btn_delete").hide();
+        $(".btn_delete").css({ "display": "flex" });
+    }else {
+        $(".btn_add").css({ "display": "flex" });
+    }
+    });
+  });
+})(jQuery);
+
+if (window.matchMedia("(max-width: 1025px)").matches) {
+    $(".tabs").show();
+
+    if ($(".tabs__content").eq(0).hasClass("active")) {
+        $(".btn_add").css({ "display": "none" });
+        $(".btn_delete").show();
+    }else {
+        $(".btn_add").css({ "display": "flex" });
+    }
+
+    $(".tabs__content").eq(0).append($(".client__data"));
+    $(".tabs__content").eq(1).append($(".list_client"));
+}
+
+$(".btn_delete").click(function(){
+    $(".modal-wrapper ").css({ "display": "flex" });
+});
+
+$(".btn_delete, .cancel-button_form").click(function(){
+    $(".modal-wrapper").css({ "display": "flex" });
+});
+
+$(".cancel-button").click(function(){
+    $(".modal-wrapper").css({ "display": "none" });
+    $(".modal-wrapper_exit").css({ "display": "none" });
+});
+
+$(".menu__item:last-child,.menu__elem_last").click(function(){
+    $(".modal-wrapper_exit").css({ "display": "flex" });
+});

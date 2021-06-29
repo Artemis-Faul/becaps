@@ -36,8 +36,12 @@ function sortRecords(arrowData, arrowDirect) {
         var img = 0;
         if (arrowData == "Название") {
             (a = $(a).find(".list__item__col_name span")), (b = $(b).find(".list__item__col_name span"));
+        } else if (arrowData == "Название-сайта") {
+            (a = $(a).find(".list__item__col_name-sait span")), (b = $(b).find(".list__item__col_name-sait span"));
         } else if (arrowData == "ИНН") {
             (a = $(a).find(".list__item__col_inn span")), (b = $(b).find(".list__item__col_inn span"));
+        } else if (arrowData == "Сайт") {
+            (a = $(a).find(".client_item__col_name-sait span")), (b = $(b).find(".client_item__col_name-sait span"));
         } else if (arrowData == "Количество") {
             (a = $(a).find(".list__item__col_count-sait span")), (b = $(b).find(".list__item__col_count-sait span"));
         } else if (arrowData == "Клиенты") {

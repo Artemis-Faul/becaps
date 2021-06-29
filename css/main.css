@@ -16,10 +16,6 @@ body {
     color: rgb(28, 46, 53);
 }
 
-.bold_span {
-    font-weight: 600;
-}
-
 .container {
     max-width: 1280px;
     margin: 0px auto;
@@ -314,11 +310,11 @@ body {
     cursor: pointer;
 }
 
-.btn_send:hover {
+.btn_send:hover, .submit-button:hover {
     background: linear-gradient(90.96deg, rgb(226, 57, 77) 0.09%, rgb(251, 114, 32) 105.35%);
 }
 
-.btn_send:active {
+.btn_send:active, .submit-button:active {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
         linear-gradient(90.96deg, rgb(226, 57, 77) 0.09%, rgb(251, 114, 32) 105.35%);
 }
@@ -618,7 +614,6 @@ footer .footer_text {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    transition: all 0.7s ease 0s;
 }
 
 .btn_add img {
@@ -631,14 +626,32 @@ footer .footer_text {
     color: rgb(255, 255, 255);
 }
 
+.btn_delete {
+    background: transparent;
+    border: 0;
+    margin-right: 8px;
+    display: flex;
+}
+
+.btn_delete span {
+    color: #ed5b4e;
+}
+
 .btn_add:hover {
     background: linear-gradient(90.96deg, rgb(226, 57, 77) 0.09%, rgb(251, 114, 32) 105.35%);
-    transition: all 0.7s ease 0s;
 }
 
 .btn_add:active {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
         linear-gradient(90.96deg, rgb(226, 57, 77) 0.09%, rgb(251, 114, 32) 105.35%);
+}
+
+.btn_delete:hover {
+    background: #ed5b4e1a;
+}
+
+.btn_delete:active {
+    background: #ed5b4e33;
 }
 
 .list {
@@ -683,7 +696,7 @@ footer .footer_text {
 .list__item__col {
     display: flex;
     align-items: center;
-    filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 10px 20px);
+    /* filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 10px 20px); */
 }
 
 .list__item__col_name {
@@ -907,6 +920,7 @@ footer .footer_text {
 
 .mobile_adapt_names {
     display: flex;
+    width: 100%;
 }
 
 .mobile_adapt_date {
@@ -1074,14 +1088,32 @@ footer .footer_text {
     color: rgb(255, 255, 255);
 }
 
+/* .submit-button:hover {
+
+} */
+
+.submit-button_popup {
+    padding: 16px 20px;
+}
+
 .submit-button_404 {
     padding: 16px 20px;
 }
 
-.cancel-button {
+.cancel-button,.cancel-button_form {
     font: 600 1rem Manrope, sans-serif;
     color: rgb(145, 151, 151);
-    margin-right: 28px;
+    margin-right: 8px;
+    padding: 16px 20px;
+    border-radius: 10px;
+}
+
+.cancel-button:hover,.cancel-button_form:hover{
+    background: rgba(145, 151, 151, 0.1);
+}
+
+.cancel-button:active,.cancel-button_form:active{
+    background: rgba(145, 151, 151, 0.2);
 }
 
 .input-field {
@@ -1233,9 +1265,11 @@ textarea {
     top: 630px;
 }
 
-.content_client{width: 83.334%;}
+.content_client {
+    width: 83.334%;
+}
 
-.client_wrapper{
+.client_wrapper {
     display: flex;
 }
 
@@ -1247,6 +1281,7 @@ textarea {
     background: rgb(255, 255, 255);
     padding: 24px 20px;
     height: 100%;
+    margin-bottom: 60px;
 }
 
 .client__data__info {
@@ -1268,6 +1303,107 @@ textarea {
     margin-bottom: 5px;
     color: #919797;
     font-size: 0.875rem;
+}
+
+.list__client_name-sait {
+    width: 36.4%;
+    margin-right: 0;
+}
+
+.list__client_url {
+    width: 30.2%;
+}
+
+.client_item__col_name-sait {
+    width: 35%;
+    padding-left: 1.8%;
+    margin-right: 1%;
+}
+
+.client__item__col_url {
+    width: 29.2%;
+    margin-right: 2%;
+}
+
+.bold_span {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.tabs {
+    width: 100%;
+    display: none;
+}
+.tabs__caption {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0 16px;
+}
+
+.tabs__caption li {
+    margin: 0px 20px 16px 0px;
+    padding-bottom: 8px;
+    font: 500 1rem Manrope, sans-serif;
+    color: #919797;
+}
+
+.tabs__caption li:not(.active) {
+    cursor: pointer;
+}
+
+.tabs__caption .active {
+    border-bottom: 3px solid #ed5b4e;
+    color: #1c2e35;
+}
+
+.tabs__content {
+    display: none;
+}
+
+.tabs__content.active {
+    display: block;
+}
+
+.modal-wrapper,.modal-wrapper_exit  {
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    z-index: 100;
+}
+
+.popup {
+    width: 26%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 56px 40px 40px 40px;
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid black;
+}
+
+.popup__title {
+    display: block;
+    font: 700 1.5rem Manrope, sans-serif;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.popup__subtitle {
+    text-align: center;
+    padding: 0 60px;
+    font: 500 1rem Manrope, sans-serif;
+    margin-bottom: 48px;
 }
 
 @media screen and (max-width: 1600px) {
@@ -1465,6 +1601,40 @@ textarea {
     #star_6 {
         left: 380px;
         top: 430px;
+    }
+
+    .list__client_name-sait {
+        width: 36.4%;
+        margin-right: 0;
+    }
+
+    .list__client_url {
+        width: 30.2%;
+    }
+
+    .client_item__col_name-sait {
+        width: 34%;
+        margin-right: 1.5%;
+    }
+
+    .client__item__col_url {
+        width: 29.2%;
+        margin-right: 2%;
+    }
+
+    .popup {
+        width: 26%;
+        padding: 26px 20px 20px 20px;
+    }
+
+    .popup__title {
+        font: 700 1.25rem Manrope, sans-serif;
+    }
+
+    .popup__subtitle {
+        padding: 0 30px;
+        font: 500 0.875rem Manrope, sans-serif;
+        margin-bottom: 30px;
     }
 }
 
@@ -1789,6 +1959,11 @@ textarea {
         width: 18px;
     }
 
+    .btn_delete {
+        position: initial;
+        display: flex;
+    }
+
     .list__item_names {
         display: none;
     }
@@ -1870,6 +2045,11 @@ textarea {
         margin-bottom: 10px;
     }
 
+    .content-top_client {
+        margin: 0;
+        padding-top: 0;
+    }
+
     .block-warnings {
         width: 100%;
         margin-bottom: 14px;
@@ -1921,6 +2101,7 @@ textarea {
 
     .content_uptime .list__item {
         height: auto;
+        padding-bottom: 16px;
     }
 
     .mobile_adapt_date .list__item__col span {
@@ -2029,6 +2210,40 @@ textarea {
         top: 30%;
         width: 26px;
         height: 26px;
+    }
+
+    .client__data__edit svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .client__data {
+        width: 100%;
+    }
+
+    .client__data__info {
+        margin-bottom: 16px;
+    }
+
+    .client__item__col_url {
+        width: 100%;
+        margin-bottom: 4px;
+    }
+
+    .popup {
+        width: 288px;
+        padding: 56px 16px 40px 16px;
+        left: 16vw;
+    }
+
+    .popup__title {
+        font: 700 1.125rem Manrope, sans-serif;
+    }
+
+    .popup__subtitle {
+        padding: 0 16px;
+        font: 500 0.875rem Manrope, sans-serif;
+        margin-bottom: 24px;
     }
 }
 
