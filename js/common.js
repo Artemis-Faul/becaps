@@ -290,3 +290,33 @@ $(".cancel-button").click(function(){
 $(".menu__item:last-child,.menu__elem_last").click(function(){
     $(".modal-wrapper_exit").css({ "display": "flex" });
 });
+
+
+$(".select-user__selection").on("change", function () {
+    var select = $(".select-user__selection").val();
+    if (select != "Выберите пользователя") {
+        $(".submit-button_user").removeClass("disabled");
+        $(".submit-button_user").prop("disabled", false);
+    }
+    else {
+        $(".submit-button_user").addClass("disabled");
+        $(".submit-button_user").prop("disabled", true);
+    }
+
+});
+
+$(".admin svg").click(function () {
+    $(this).closest(".admin").css({ "display": "none" });
+});
+
+
+var Circle = function(sel){
+    var circles = document.querySelectorAll(sel);
+    [].forEach.call(circles,function(el){
+        var valEl = parseFloat(el.innerHTML.replace(',', '.'));
+        $(".circle__span").attr('data-before',valEl+"%");
+        valEl = valEl*440/100 - 17;
+        el.innerHTML = '<svg class="circle__svg"><defs><linearGradient id="gradient" x1="20%" y1="0%" x2="3%" y2="100.96%" ><stop offset="0%" stop-color="#EA495C" /><stop offset="100%" stop-color=" #F37C35" /></linearGradient></defs><circle  class="circle" transform="rotate(-90)" r="70" cx="-80" cy="80" /><circle class="circle_color" style="stroke-dasharray:'+valEl+'px 440px;" r="70" rx="20" ry="20" cx="-80" cy="80" stroke="url(#gradient)" stroke-width="17" fill="none" transform="rotate(-90)"/></svg>';
+    });
+};
+Circle('.circle__span');
