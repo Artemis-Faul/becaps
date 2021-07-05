@@ -156,13 +156,51 @@ jQuery.fn.sortElements = (function () {
 
 var i = 0;
 
+var months = {
+    января: 1,
+    февраля: 2,
+    марта: 3,
+    апреля: 4,
+    мая: 5,
+    июня: 6,
+    июля: 7,
+    августа: 8,
+    сентября: 9,
+    октября: 10,
+    ноября: 11,
+    декабря: 12,
+};
+
+function dateConverter(dateselect) {
+    var datetime = $(dateselect).text().split(" ");
+    date_convert = [];
+    date_convert[0] = datetime[2]; //год
+
+    if (datetime[1].length > 2) {
+        date_convert[1] = months[datetime[1]]; //месяц
+    }
+
+    date_convert[2] = datetime[0]; //день
+    date_convert[3] = datetime[4]; //время
+
+    return date_convert.join(" ");
+}
+
 function sortRecords(arrowData, arrowDirect) {
     $(".list li").sortElements(function (a, b) {
         var img = 0;
+        var dateset = 0;
         if (arrowData == "Название") {
             (a = $(a).find(".list__item__col_name span")), (b = $(b).find(".list__item__col_name span"));
+        } else if (arrowData == "Дата") {
+            (a = $(a).find(".site__item__col_date span")), (b = $(b).find(".site__item__col_date span"));
+            a = dateConverter(a);
+            b = dateConverter(b);
+            dateset = 1;
         } else if (arrowData == "Название-сайта") {
             (a = $(a).find(".list__item__col_name-sait span")), (b = $(b).find(".list__item__col_name-sait span"));
+        } else if (arrowData == "Статус") {
+            (a = $(a).find(".site__item__col_status span")), (b = $(b).find(".site__item__col_status span"));
         } else if (arrowData == "ИНН") {
             (a = $(a).find(".list__item__col_inn span")), (b = $(b).find(".list__item__col_inn span"));
         } else if (arrowData == "Сайт") {
@@ -191,6 +229,8 @@ function sortRecords(arrowData, arrowDirect) {
                 .addClass("arrow_active");
             if (img) {
                 return $(a).attr("alt") < $(b).attr("alt") ? 1 : -1;
+            } else if (dateset) {
+                return a < b ? 1 : -1;
             }
             return $(a).text() < $(b).text() ? 1 : -1;
         }
@@ -200,6 +240,8 @@ function sortRecords(arrowData, arrowDirect) {
 
         if (img) {
             return $(a).attr("alt") > $(b).attr("alt") ? 1 : -1;
+        } else if (dateset) {
+            return a > b ? 1 : -1;
         }
 
         return $(a).text() > $(b).text() ? 1 : -1;
