@@ -214,7 +214,6 @@ $(document).ready(function () {
 });
 
 
-
 $(".eye").on("click", function () {
     $(this).toggleClass("eye_active");
     if ($(".password_input").attr("type") == "password") {
@@ -605,8 +604,9 @@ if (window.matchMedia("(max-width: 1025px)").matches) {
         $(".btn_add").css({ "display": "flex" });
     }
 
-    $(".tabs__content").eq(0).append($(".client__data"));
+    $(".tabs__content").eq(0).append($(".client__data:not(.client__data_notific)"));
     $(".tabs__content").eq(1).append($(".list_client"));
+    $(".tabs__content").eq(2).append($(".client__data_notific"));
 }
 
 $(".btn_delete").click(function(){
@@ -648,9 +648,58 @@ $(".admin svg").click(function () {
 var Circle = function(sel){
     var circles = document.querySelectorAll(sel);
     [].forEach.call(circles,function(el){
-        var valEl = parseFloat(el.innerHTML);
+        var valEl = parseFloat(el.innerHTML.replace(',', '.'));
+        $(".circle__span").attr('data-before',valEl+"%");
         valEl = valEl*440/100 - 17;
         el.innerHTML = '<svg class="circle__svg"><defs><linearGradient id="gradient" x1="20%" y1="0%" x2="3%" y2="100.96%" ><stop offset="0%" stop-color="#EA495C" /><stop offset="100%" stop-color=" #F37C35" /></linearGradient></defs><circle  class="circle" transform="rotate(-90)" r="70" cx="-80" cy="80" /><circle class="circle_color" style="stroke-dasharray:'+valEl+'px 440px;" r="70" rx="20" ry="20" cx="-80" cy="80" stroke="url(#gradient)" stroke-width="17" fill="none" transform="rotate(-90)"/></svg>';
     });
 };
 Circle('.circle__span');
+
+
+
+     
+$('.datepicker-here_first').click(function () {
+    $('.datepicker-here_second').attr("disabled", true);
+    $(".close").on("click", function () {
+        if ($('.datepicker-here_first').val() != "Выбрать с -") {
+            var myDatepicker = $(".datepicker-here_first").datepicker().data('datepicker');
+            myDatepicker.hide();
+             $('.datepicker-here_second').attr("disabled", false);
+        }
+    });
+});
+
+
+$('.datepicker-here_second').click(function () {
+    $('.datepicker-here_first').attr("disabled", true);
+    $(".close").on("click", function () {
+        if ($('.datepicker-here_second').val() != "Выбрать по") {
+            var myDatepicker = $(".datepicker-here_second").datepicker().data('datepicker');
+            myDatepicker.hide();
+            $('.datepicker-here_first').attr("disabled", false);
+        }
+    });
+});
+
+
+$('.choice_period').hide();
+$(".btn_show").hide();
+$(".btn_hide").hide();
+
+$(".btn_hide").click(function () {
+    $(".datepicker-here_first").html($(".datepicker-here_first").val("Выбрать с -"));
+    $(".datepicker-here_second").html($(".datepicker-here_second").val("Выбрать по"));
+    $(".btn_show").hide();
+    $(".btn_hide").hide();
+    $(".datepicker_border").show();
+    $(".input_choice *").show();
+    $(".choice_period").hide();
+    $('.btn_show').attr("disabled", false);
+    $('.btn_show').removeClass("disabled");
+});
+
+$(".btn_show").click(function () {
+    $('.btn_show').attr("disabled", true);
+    $('.btn_show').addClass("disabled");
+});

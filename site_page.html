@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/datepicker.css" />
     </head>
     <body>
         <header class="header">
@@ -161,7 +162,7 @@
             </div>
             <div class="content_uptime content_client">
                 <div class="content-top content-top_client">
-                    <div class="content__title_arrow">
+                    <div class="content__title_arrow content__title_date">
                         <a class="content__title__arrow" onclick="javascript:history.back(); return false;">
                             <svg width="12" height="19" viewBox="0 0 12 19" fill="none">
                                 <path
@@ -175,7 +176,28 @@
                         </a>
                         <h1 class="content__title">Бест основной</h1>
                     </div>
-                    <div class="mobile_adapt">
+                    <div class="input_choice">
+                        <div class="datepicker_border">
+                            <input
+                                type="text"
+                                class="datepicker-here datepicker-here_first"
+                                name="date_1"
+                                value="Выбрать с -"
+                            />
+                        </div>
+                        <div class="datepicker_border_second">
+                            <input type="text" class="datepicker-here datepicker-here_second" value="Выбрать по" />
+                        </div>
+                        <div class="choice_period">
+                            Выбран период с <span class="choice_period_val1"></span> по 
+                            <span class="choice_period_val2"></span>
+                        </div>
+                    </div>
+
+                    <div class="submit-button btn_show">Показать</div>
+                    <div class="cancel-button btn_hide">Сбросить</div>
+
+                    <div class="flex-adapt">
                         <button class="btn_add btn_delete btn_delete_big">
                             <img src="img/icon/basket.svg" alt="" />
                             <span>Удалить данные сайта </span>
@@ -235,21 +257,13 @@
 
                             <div class="client__data__info">
                                 <div class="circle__span">79,9%</div>
-                                <!-- var Circle = function(sel){
-    var circles = document.querySelectorAll(sel);
-    [].forEach.call(circles,function(el){
-        var valEl = parseFloat(el.innerHTML.replace(',', '.'));
-        $(".circle__span").attr('data-before',valEl+"%");
-        valEl = valEl*440/100 - 17;
-        el.innerHTML = '<svg class="circle__svg"><defs><linearGradient id="gradient" x1="20%" y1="0%" x2="3%" y2="100.96%" ><stop offset="0%" stop-color="#EA495C" /><stop offset="100%" stop-color=" #F37C35" /></linearGradient></defs><circle  class="circle" transform="rotate(-90)" r="70" cx="-80" cy="80" /><circle class="circle_color" style="stroke-dasharray:'+valEl+'px 440px;" r="70" rx="20" ry="20" cx="-80" cy="80" stroke="url(#gradient)" stroke-width="17" fill="none" transform="rotate(-90)"/></svg>';
-    });
-};
-Circle('.circle__span'); -->
                             </div>
 
-                            <span class="client__data__span client__data__span_cirle">Сайт работал <span>79,9%</span> времени от начала месяца.</span>
+                            <span class="client__data__span client__data__span_cirle"
+                                >Сайт работал <span>79,9%</span> времени от начала месяца.</span
+                            >
                         </div>
-                        <div class="client__data client__data_site">
+                        <div class="client__data client__data_notific client__data_site">
                             <div class="client__data__info">
                                 <span class="client__data__span bold_span">Уведомления на почту</span>
                             </div>
@@ -285,7 +299,7 @@ Circle('.circle__span'); -->
                                 </li>
                                 <li class="admin">
                                     <span class="admin__name">arudyukrg3</span>
-                                    <svg 
+                                    <svg
                                         width="15"
                                         height="16"
                                         viewBox="0 0 15 16"
@@ -321,7 +335,8 @@ Circle('.circle__span'); -->
                                     <option class="option_select">elenalena</option>
                                 </select>
                                 <form class="form__buttons" action="">
-                                    <input disabled
+                                    <input
+                                        disabled
                                         class="submit-button submit-button_user disabled"
                                         type="submit"
                                         value="Добавить к рассылке"
@@ -615,6 +630,7 @@ Circle('.circle__span'); -->
             crossorigin="anonymous"
         ></script>
         <script src="./js/js.cookie.js"></script>
+        <script src="./js/datepicker.js"></script>
         <script src="./dist/js/common.js"></script>
     </body>
 </html>

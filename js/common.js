@@ -19,7 +19,6 @@ $(".switch-menu").on("click", function () {
 
 @@include('sort.js')
 
-
 $(".eye").on("click", function () {
     $(this).toggleClass("eye_active");
     if ($(".password_input").attr("type") == "password") {
@@ -270,8 +269,9 @@ if (window.matchMedia("(max-width: 1025px)").matches) {
         $(".btn_add").css({ "display": "flex" });
     }
 
-    $(".tabs__content").eq(0).append($(".client__data"));
+    $(".tabs__content").eq(0).append($(".client__data:not(.client__data_notific)"));
     $(".tabs__content").eq(1).append($(".list_client"));
+    $(".tabs__content").eq(2).append($(".client__data_notific"));
 }
 
 $(".btn_delete").click(function(){
@@ -320,3 +320,51 @@ var Circle = function(sel){
     });
 };
 Circle('.circle__span');
+
+
+
+     
+$('.datepicker-here_first').click(function () {
+    $('.datepicker-here_second').attr("disabled", true);
+    $(".close").on("click", function () {
+        if ($('.datepicker-here_first').val() != "Выбрать с -") {
+            var myDatepicker = $(".datepicker-here_first").datepicker().data('datepicker');
+            myDatepicker.hide();
+             $('.datepicker-here_second').attr("disabled", false);
+        }
+    });
+});
+
+
+$('.datepicker-here_second').click(function () {
+    $('.datepicker-here_first').attr("disabled", true);
+    $(".close").on("click", function () {
+        if ($('.datepicker-here_second').val() != "Выбрать по") {
+            var myDatepicker = $(".datepicker-here_second").datepicker().data('datepicker');
+            myDatepicker.hide();
+            $('.datepicker-here_first').attr("disabled", false);
+        }
+    });
+});
+
+
+$('.choice_period').hide();
+$(".btn_show").hide();
+$(".btn_hide").hide();
+
+$(".btn_hide").click(function () {
+    $(".datepicker-here_first").html($(".datepicker-here_first").val("Выбрать с -"));
+    $(".datepicker-here_second").html($(".datepicker-here_second").val("Выбрать по"));
+    $(".btn_show").hide();
+    $(".btn_hide").hide();
+    $(".datepicker_border").show();
+    $(".input_choice *").show();
+    $(".choice_period").hide();
+    $('.btn_show').attr("disabled", false);
+    $('.btn_show').removeClass("disabled");
+});
+
+$(".btn_show").click(function () {
+    $('.btn_show').attr("disabled", true);
+    $('.btn_show').addClass("disabled");
+});
