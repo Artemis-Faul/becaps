@@ -157,33 +157,51 @@ jQuery.fn.sortElements = (function () {
 var i = 0;
 
 var months = {
-    января: 1,
-    февраля: 2,
-    марта: 3,
-    апреля: 4,
-    мая: 5,
-    июня: 6,
-    июля: 7,
-    августа: 8,
-    сентября: 9,
-    октября: 10,
-    ноября: 11,
-    декабря: 12,
+    января: "01",
+    февраля: "02",
+    марта: "03",
+    апреля: '04',
+    мая: "05",
+    июня: '06',
+    июля: '07',
+    августа: '08',
+    сентября: '09',
+    октября: '10',
+    ноября: '11',
+    декабря: '12',
 };
 
-function dateConverter(dateselect) {
-    var datetime = $(dateselect).text().split(" ");
+function dateConverter(dateselect, datenormal, dateLimit) {
+    if (dateLimit) {
+        var datetime = $(dateselect)
+            .val()
+            .split(/[\s,:.]+/);
+    } else {
+        var datetime = $(dateselect)
+            .text()
+            .split(/[\s,:.]+/);
+    }
+
     date_convert = [];
     date_convert[0] = datetime[2]; //год
 
-    if (datetime[1].length > 2) {
+    date_convert[1] = datetime[1];
+    if (date_convert[1].length > 2) {
         date_convert[1] = months[datetime[1]]; //месяц
     }
 
     date_convert[2] = datetime[0]; //день
-    date_convert[3] = datetime[4]; //время
+    if (date_convert[2].length < 2) {
+        date_convert[2] = "0" + datetime[0];
+    }
 
-    return date_convert.join(" ");
+    if (datenormal) {
+        return Number.parseInt(date_convert.join(""));
+    }
+
+    date_convert[3] = datetime[4]; //время
+    date_convert[4] = datetime[5];
+    return Number.parseInt(date_convert.join(""));
 }
 
 function sortRecords(arrowData, arrowDirect) {
@@ -319,6 +337,9 @@ $("form input[type=email]").on("input", function () {
 
 // Selection records on site ready
 function SortPages(select, arrowDir, arrowDat) {
+    if (!select) {
+        select = 10;
+    }
 
     $(".list li").show();
 
@@ -346,6 +367,15 @@ function SortPages(select, arrowDir, arrowDat) {
 }
 
 function showRecords(page, select) {
+    if (!select) {
+        select = 10;
+    }
+
+    if (!page) {
+        page = 1;
+        Cookies.set("page", 1);
+    }
+    
     $(".list li").hide();
 
     for (let i = (page - 1) * select; i < select * page; i++) {
@@ -354,7 +384,17 @@ function showRecords(page, select) {
 }
 
 function genNumbers(select) {
-    numbers = Math.ceil($(".list li").length / select);
+    if (!select) {
+        select = 10;
+    }
+
+    minDate = Number(Cookies.get("minDate"));
+    var len = $(".list li").length;
+    if (minDate) {
+        detachRecords(len);
+    }
+
+    numbers = Math.ceil(len / select);
     var page = Number(Cookies.get("page"));
     if (!page) {
         page = 1;
@@ -393,18 +433,36 @@ function genNumbers(select) {
         .addClass("number-page_active");
 }
 
+function detachRecords(len) {
+    minDate = Number(Cookies.get("minDate"));
+    maxDate = Number(Cookies.get("maxDate"));
+    for (let i = 0; i < len; i++) {
+        dateli = $(".list li").eq(i).find(".site__item__col_date span");
+        dateli = dateConverter(dateli, 1);
+        if (dateli < minDate || dateli > maxDate) {
+            $(".list li").eq(i).remove();
+        }
+    }
+}
+// Selection records on site ready
+
 var select = Cookies.get("select");
 var arrowData = Cookies.get("arrow");
 var arrowDirect = Cookies.get("arrow_direct");
+var minDate = Cookies.get("minDate");
 
 if (!select) {
     select = 10;
     Cookies.set("select", 10);
 }
 
+
 $('.selection>option:contains("' + select + '")').prop("selected", true);
+
+
 genNumbers(select);
 SortPages(select, arrowData, arrowDirect);
+
 
 // Selection records on site ready
 
@@ -737,11 +795,42 @@ $(".btn_hide").click(function () {
     $(".datepicker_border").show();
     $(".input_choice *").show();
     $(".choice_period").hide();
+    if ($('.btn_show').attr("disabled")){ 
+        genNumbers(select);
+        SortPages(select, arrowData, arrowDirect);
+    }
     $('.btn_show').attr("disabled", false);
     $('.btn_show').removeClass("disabled");
 });
 
+
 $(".btn_show").click(function () {
     $('.btn_show').attr("disabled", true);
     $('.btn_show').addClass("disabled");
+    // $(".list li").show();
+
+    // var len = $(".list li").length;
+
+    var minDate = $(".datepicker-here_first");
+    minDate = dateConverter(minDate, 1, 1);
+
+    var maxDate = (".datepicker-here_second");
+    maxDate = dateConverter(maxDate, 1, 1);
+
+    Cookies.set("page", 1);
+    Cookies.set("minDate", minDate);
+    Cookies.set("maxDate", maxDate);
+
+    // for (let i = 0; i < len; i++) {
+    //     dateli = $(".list li").eq(i).find(".site__item__col_date span");
+    //     dateli = dateConverter(dateli, 1);
+    //     if (dateli < minDate || dateli > maxDate) { 
+    //         $(".list li").eq(i).hide();
+    //     }
+    // }
+
+    var select = Number($(".selection").val());
+    Cookies.set("select", select);
+
+    document.location.reload();
 });

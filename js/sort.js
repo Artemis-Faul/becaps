@@ -32,33 +32,51 @@ jQuery.fn.sortElements = (function () {
 var i = 0;
 
 var months = {
-    января: 1,
-    февраля: 2,
-    марта: 3,
-    апреля: 4,
-    мая: 5,
-    июня: 6,
-    июля: 7,
-    августа: 8,
-    сентября: 9,
-    октября: 10,
-    ноября: 11,
-    декабря: 12,
+    января: "01",
+    февраля: "02",
+    марта: "03",
+    апреля: '04',
+    мая: "05",
+    июня: '06',
+    июля: '07',
+    августа: '08',
+    сентября: '09',
+    октября: '10',
+    ноября: '11',
+    декабря: '12',
 };
 
-function dateConverter(dateselect) {
-    var datetime = $(dateselect).text().split(" ");
+function dateConverter(dateselect, datenormal, dateLimit) {
+    if (dateLimit) {
+        var datetime = $(dateselect)
+            .val()
+            .split(/[\s,:.]+/);
+    } else {
+        var datetime = $(dateselect)
+            .text()
+            .split(/[\s,:.]+/);
+    }
+
     date_convert = [];
     date_convert[0] = datetime[2]; //год
 
-    if (datetime[1].length > 2) {
+    date_convert[1] = datetime[1];
+    if (date_convert[1].length > 2) {
         date_convert[1] = months[datetime[1]]; //месяц
     }
 
     date_convert[2] = datetime[0]; //день
-    date_convert[3] = datetime[4]; //время
+    if (date_convert[2].length < 2) {
+        date_convert[2] = "0" + datetime[0];
+    }
 
-    return date_convert.join(" ");
+    if (datenormal) {
+        return Number.parseInt(date_convert.join(""));
+    }
+
+    date_convert[3] = datetime[4]; //время
+    date_convert[4] = datetime[5];
+    return Number.parseInt(date_convert.join(""));
 }
 
 function sortRecords(arrowData, arrowDirect) {

@@ -360,11 +360,42 @@ $(".btn_hide").click(function () {
     $(".datepicker_border").show();
     $(".input_choice *").show();
     $(".choice_period").hide();
+    if ($('.btn_show').attr("disabled")){ 
+        genNumbers(select);
+        SortPages(select, arrowData, arrowDirect);
+    }
     $('.btn_show').attr("disabled", false);
     $('.btn_show').removeClass("disabled");
 });
 
+
 $(".btn_show").click(function () {
     $('.btn_show').attr("disabled", true);
     $('.btn_show').addClass("disabled");
+    // $(".list li").show();
+
+    // var len = $(".list li").length;
+
+    var minDate = $(".datepicker-here_first");
+    minDate = dateConverter(minDate, 1, 1);
+
+    var maxDate = (".datepicker-here_second");
+    maxDate = dateConverter(maxDate, 1, 1);
+
+    Cookies.set("page", 1);
+    Cookies.set("minDate", minDate);
+    Cookies.set("maxDate", maxDate);
+
+    // for (let i = 0; i < len; i++) {
+    //     dateli = $(".list li").eq(i).find(".site__item__col_date span");
+    //     dateli = dateConverter(dateli, 1);
+    //     if (dateli < minDate || dateli > maxDate) { 
+    //         $(".list li").eq(i).hide();
+    //     }
+    // }
+
+    var select = Number($(".selection").val());
+    Cookies.set("select", select);
+
+    document.location.reload();
 });
