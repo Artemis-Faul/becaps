@@ -35,22 +35,20 @@ var months = {
     января: "01",
     февраля: "02",
     марта: "03",
-    апреля: '04',
+    апреля: "04",
     мая: "05",
-    июня: '06',
-    июля: '07',
-    августа: '08',
-    сентября: '09',
-    октября: '10',
-    ноября: '11',
-    декабря: '12',
+    июня: "06",
+    июля: "07",
+    августа: "08",
+    сентября: "09",
+    октября: "10",
+    ноября: "11",
+    декабря: "12",
 };
 
 function dateConverter(dateselect, datenormal, dateLimit) {
     if (dateLimit) {
-        var datetime = $(dateselect)
-            .val()
-            .split(/[\s,:.]+/);
+        var datetime = dateselect.split(/[\s,:.]+/);
     } else {
         var datetime = $(dateselect)
             .text()
@@ -61,7 +59,7 @@ function dateConverter(dateselect, datenormal, dateLimit) {
     date_convert[0] = datetime[2]; //год
 
     date_convert[1] = datetime[1];
-    if (date_convert[1].length > 2) {
+    if (String(date_convert[1]).length > 2) {
         date_convert[1] = months[datetime[1]]; //месяц
     }
 

@@ -206,26 +206,48 @@ $('body').on('input', '.input_number', function(){
     }
 });
 
-$( ".form-create-edit" ).submit(function(event) {
+$(".popup_access").hide();
+
+$(".form-create-edit").submit(function (event) {
     var inputsLen = $(".input_requred").length;
     for (let i = 0; i < inputsLen; i++){
         input = $(".input_requred").eq(i);
+
+        $('.input-field__text').show();
         if (!input.val()) {
+            console.log("not_fill");
             if (!input.hasClass("not_fill")) {
                 input.addClass("not_fill");
                 $('<p class="input-field__text">Это обязательное поле. Заполните его, пожалуйста</p>').insertAfter(input.closest(".input-field"));
             }
             
-
             input.css({ border: "1px solid #DA0B20", background: "rgba(218, 11, 32, 0.05)" })
             input.closest(".input-field").css({ "margin-bottom": "0" });
-            event.preventDefault();
         }
+        
         else {
-            $(".input-field__text").eq(i).remove();
+            if (input.hasClass("not_fill")) {
+                $(input.closest(".input-field").next()).remove();
+                input.removeClass("not_fill");
+            }
             input.closest(".input-field").css({ "margin-bottom": "2.5%" });
         }
     }
+    if ($(this).find(".add_site").length) {
+        if ($(this).find(".input-field__text").length) {
+            $(".popup_access_wrong").show();
+            $(".popup_access_success").hide();
+        }
+        else {
+            $(".popup_access_success").show();
+            $(".popup_access_wrong").hide();
+        }
+    }
+    event.preventDefault();
+});
+
+$(".popup_access__close").click(function(){
+    $(this).closest(".popup_access").hide();
 });
 
 $('.switch-btn').click(function(){
@@ -322,7 +344,22 @@ var Circle = function(sel){
 Circle('.circle__span');
 
 
-
+if (Cookies.get("minDate")) {
+    console.log(Cookies.get("minDate"));
+    $(".choice_period_val1").html(Cookies.get("minDate"));
+    $(".choice_period_val2").html(Cookies.get("maxDate"));
+    $(".choice_period").show();
+    $(".datepicker_border").hide();
+    $(".datepicker_border_second").hide();
+    $(".btn_show").show();
+    $(".btn_hide").show();
+    $(".btn_show").attr("disabled", true);
+    $(".btn_show").addClass("disabled");
+} else {
+    $('.choice_period').hide();
+    $(".btn_show").hide();
+    $(".btn_hide").hide();
+}
      
 $('.datepicker-here_first').click(function () {
     $('.datepicker-here_second').attr("disabled", true);
@@ -348,10 +385,6 @@ $('.datepicker-here_second').click(function () {
 });
 
 
-$('.choice_period').hide();
-$(".btn_show").hide();
-$(".btn_hide").hide();
-
 $(".btn_hide").click(function () {
     $(".datepicker-here_first").html($(".datepicker-here_first").val("Выбрать с -"));
     $(".datepicker-here_second").html($(".datepicker-here_second").val("Выбрать по"));
@@ -360,31 +393,33 @@ $(".btn_hide").click(function () {
     $(".datepicker_border").show();
     $(".input_choice *").show();
     $(".choice_period").hide();
-    if ($('.btn_show').attr("disabled")){ 
-        genNumbers(select);
-        SortPages(select, arrowData, arrowDirect);
-    }
+    Cookies.set("minDate", "");
+    Cookies.set("maxDate", "");
+    // if ($('.btn_show').attr("disabled")){ 
+    //     genNumbers(select);
+    //     SortPages(select, arrowData, arrowDirect);
+    // }
     $('.btn_show').attr("disabled", false);
     $('.btn_show').removeClass("disabled");
 });
 
 
 $(".btn_show").click(function () {
-    $('.btn_show').attr("disabled", true);
-    $('.btn_show').addClass("disabled");
+    // $('.btn_show').attr("disabled", true);
+    // $('.btn_show').addClass("disabled");
     // $(".list li").show();
 
     // var len = $(".list li").length;
 
-    var minDate = $(".datepicker-here_first");
-    minDate = dateConverter(minDate, 1, 1);
+    // var minDate = $(".datepicker-here_first").val();
+    // minDate = dateConverter(minDate, 1, 1);
 
-    var maxDate = (".datepicker-here_second");
-    maxDate = dateConverter(maxDate, 1, 1);
+    // var maxDate = (".datepicker-here_second").val();
+    // maxDate = dateConverter(maxDate, 1, 1);
 
-    Cookies.set("page", 1);
-    Cookies.set("minDate", minDate);
-    Cookies.set("maxDate", maxDate);
+    // Cookies.set("page", 1);
+    // Cookies.set("minDate", minDate);
+    // Cookies.set("maxDate", maxDate);
 
     // for (let i = 0; i < len; i++) {
     //     dateli = $(".list li").eq(i).find(".site__item__col_date span");
@@ -393,9 +428,10 @@ $(".btn_show").click(function () {
     //         $(".list li").eq(i).hide();
     //     }
     // }
+    if (!$('.btn_show').attr("disabled")) {
+        var select = Number($(".selection").val());
+        Cookies.set("select", select);
 
-    var select = Number($(".selection").val());
-    Cookies.set("select", select);
-
-    document.location.reload();
+        document.location.reload();
+    }
 });
