@@ -173,7 +173,7 @@ var months = {
 
 function dateConverter(dateselect, datenormal, dateLimit) {
     if (dateLimit) {
-        var datetime = dateselect.split(/[\s,:.]+/);
+        var datetime = String(dateselect).split(/[\s,:.]+/);
     } else {
         var datetime = $(dateselect)
             .text()
@@ -393,6 +393,11 @@ function genNumbers(select) {
         detachRecords(len);
     }
 
+    else {
+        $(".btn_show").attr("disabled", false);
+        $(".btn_show").removeClass("disabled");
+    }
+
     numbers = Math.ceil($(".list li").length / select);
     var page = Number(Cookies.get("page"));
     if (!page) {
@@ -441,12 +446,13 @@ function detachRecords(len) {
     for (let i = 0; i < len; i++) {
         dateli = $(".list li").eq(i).find(".site__item__col_date span");
         dateli = dateConverter(dateli, 1);
+
         if (dateli < minDate || dateli > maxDate) {
-            console.log("Я не жилец");
-            $(".list li").eq(i).remove();
+            $(".list li").eq(i).addClass("remove-records");
         }
     }
 
+    $(".remove-records").remove();
 }
 // Selection records on site ready
 
@@ -654,7 +660,6 @@ $(".form-create-edit").submit(function (event) {
 
         $('.input-field__text').show();
         if (!input.val()) {
-            console.log("not_fill");
             if (!input.hasClass("not_fill")) {
                 input.addClass("not_fill");
                 $('<p class="input-field__text">Это обязательное поле. Заполните его, пожалуйста</p>').insertAfter(input.closest(".input-field"));
@@ -784,7 +789,7 @@ Circle('.circle__span');
 
 
 if (Cookies.get("minDate")) {
-    console.log(Cookies.get("minDate"));
+    // console.log(Cookies.get("minDate"));
     $(".choice_period_val1").html(Cookies.get("minDate"));
     $(".choice_period_val2").html(Cookies.get("maxDate"));
     $(".choice_period").show();
@@ -823,7 +828,6 @@ $('.datepicker-here_second').click(function () {
     });
 });
 
-
 $(".btn_hide").click(function () {
     $(".datepicker-here_first").html($(".datepicker-here_first").val("Выбрать с -"));
     $(".datepicker-here_second").html($(".datepicker-here_second").val("Выбрать по"));
@@ -832,14 +836,16 @@ $(".btn_hide").click(function () {
     $(".datepicker_border").show();
     $(".input_choice *").show();
     $(".choice_period").hide();
+
     Cookies.set("minDate", "");
     Cookies.set("maxDate", "");
-    // if ($('.btn_show').attr("disabled")){ 
-    //     genNumbers(select);
-    //     SortPages(select, arrowData, arrowDirect);
-    // }
-    $('.btn_show').attr("disabled", false);
-    $('.btn_show').removeClass("disabled");
+
+    if ($('.btn_show').hasClass("disabled")) {
+        document.location.reload();
+    }
+
+    $(".btn_show").attr("disabled", false);
+    $(".btn_show").removeClass("disabled");
 });
 
 
@@ -867,7 +873,7 @@ $(".btn_show").click(function () {
     //         $(".list li").eq(i).hide();
     //     }
     // }
-    if (!$('.btn_show').attr("disabled")) {
+    if (!$('.btn_show').hasClass("disabled")) {
         var select = Number($(".selection").val());
         Cookies.set("select", select);
 

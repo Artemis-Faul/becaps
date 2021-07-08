@@ -846,11 +846,18 @@
                 if (onHide) {
                     this._bindVisionEvents(onHide);
                 }
+                var first = $(".datepicker-here_first").val();
+                var second = $(".datepicker-here_second").val();
+                
+                first = dateConverter(first, 1, 1);
+                second = dateConverter(second, 1, 1);
 
-                if (
-                    $(".datepicker-here_first").val() != "Выбрать с -" &&
-                    $(".datepicker-here_second").val() != "Выбрать по"
-                ) {
+                if ( first != "Выбрать с -" && second != "Выбрать по" && first > second) {
+                    $(".datepicker-here_first").html($(".datepicker-here_first").val("Выбрать с -"));
+                    $(".datepicker-here_second").html($(".datepicker-here_second").val("Выбрать по"));
+                }
+
+                if (first != "Выбрать с -" && second != "Выбрать по" && first < second) {
                     if (window.matchMedia("(min-width: 1024px)").matches) {
                         var minDate = $(".datepicker-here_first").val();
                         var maxDate = $(".datepicker-here_second").val();
@@ -863,9 +870,9 @@
                         $(".choice_period").show();
                         $(".datepicker_border").hide();
                         $(".datepicker_border_second").hide();
-                        $(".btn_show").show();
-                        $(".btn_hide").show();
                     }
+                    $(".btn_show").show();
+                    $(".btn_hide").show();
                 }
             },
 
@@ -1183,7 +1190,7 @@
                 if (e.originalEvent.inFocus) return;
 
                 if (this.visible && !this.inFocus) {
-                    // this.hide();
+                    this.hide();
                 }
             },
 

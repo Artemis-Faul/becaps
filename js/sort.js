@@ -48,7 +48,7 @@ var months = {
 
 function dateConverter(dateselect, datenormal, dateLimit) {
     if (dateLimit) {
-        var datetime = dateselect.split(/[\s,:.]+/);
+        var datetime = String(dateselect).split(/[\s,:.]+/);
     } else {
         var datetime = $(dateselect)
             .text()
