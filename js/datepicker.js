@@ -803,6 +803,9 @@
                     case "left":
                         left = dims.left;
                         break;
+                    case "left-new":
+                        left = dims.left - 50;
+                        break;
                     case "center":
                         if (/left|right/.test(main)) {
                             top = dims.top + dims.height / 2 - selfDims.height / 2;
@@ -846,6 +849,10 @@
                 if (onHide) {
                     this._bindVisionEvents(onHide);
                 }
+
+                $(".datepicker-here_first").prop("disabled", false);
+                $(".datepicker-here_second").prop("disabled", false);
+
                 var first = $(".datepicker-here_first").val();
                 var second = $(".datepicker-here_second").val();
                 
@@ -858,19 +865,21 @@
                 }
 
                 if (first != "Выбрать с -" && second != "Выбрать по" && first < second) {
-                    if (window.matchMedia("(min-width: 1024px)").matches) {
-                        var minDate = $(".datepicker-here_first").val();
-                        var maxDate = $(".datepicker-here_second").val();
-                        Cookies.set("page", 1);
-                        Cookies.set("minDate", minDate);
-                        Cookies.set("maxDate", maxDate);
+                    var minDate = $(".datepicker-here_first").val();
+                    var maxDate = $(".datepicker-here_second").val();
+                    console.log(minDate, maxDate);
+                    Cookies.set("page", 1);
+                    Cookies.set("minDate", minDate);
+                    Cookies.set("maxDate", maxDate);
 
+                    if (window.matchMedia("(min-width: 1024px)").matches) {
                         $(".choice_period_val1").html(minDate);
                         $(".choice_period_val2").html(maxDate);
                         $(".choice_period").show();
                         $(".datepicker_border").hide();
                         $(".datepicker_border_second").hide();
                     }
+                    
                     $(".btn_show").show();
                     $(".btn_hide").show();
                 }

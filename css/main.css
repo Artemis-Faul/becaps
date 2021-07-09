@@ -1614,7 +1614,7 @@ textarea {
     border-bottom: 1px dashed #ed5b4e;
 }
 
-.content{
+.content {
     position: relative;
 }
 
@@ -1660,6 +1660,10 @@ textarea {
 .popup_access_wrong {
     background: #d11f0026;
     border: 1px solid #d11f00;
+}
+
+.tabs__caption li:last-child {
+    margin-right: 0;
 }
 
 @media screen and (max-width: 1600px) {
@@ -2397,6 +2401,77 @@ textarea {
         bottom: -22px;
         left: 16px;
         top: auto;
+    }
+
+    .site__item__col_info {
+        display: none;
+    }
+
+    .site__item__col_date,
+    .site__item__col_status {
+        width: 100%;
+        padding-left: 0;
+        margin-right: 0;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .site__item__col_date {
+        margin-bottom: 16px;
+    }
+
+    .list__item__col .client__data__span_name {
+        margin-bottom: 4px;
+        color: #919797;
+        font: 500 0.875rem Manrope, sans-serif;
+    }
+
+    .btn_show, .btn_hide{
+        width: 41px;
+        height: 40px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .input_choice {
+        margin-left: 16px;
+        margin-bottom: 16px;
+    }
+
+    .btn_hide {
+        background: #919797;
+        margin-right:0;
+    }
+
+    .btn_hide:hover {
+        background: #919797;
+    }
+
+    .btn_show{
+        margin-right: 6px;
+        margin-left: auto;
+    }
+
+    .datepicker-here {
+        width: 92px;
+    }
+
+    .datepicker_border, .datepicker_border_second {
+        width: 92px;
+    }
+    .datepicker_border_second {
+        margin-right: 24px;
+    }
+
+    .datepicker_border:after,
+    .datepicker_border_second:after {
+        width: 75px;
+    }
+
+    .datepicker_border_second:after {
+        width: 90%;
     }
 }
 
