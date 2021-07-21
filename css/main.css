@@ -1954,7 +1954,6 @@ textarea {
 @media screen and (max-width: 1600px) {
     .list__item__col span:not(.list__item_names .list__item__col span) {
         word-break: break-all;
-        line-break: anywhere;
         line-height: 19px;
     }
 
