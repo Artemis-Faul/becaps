@@ -799,7 +799,7 @@ $(".cancel-button").click(function(){
     $(".modal-wrapper_exit").css({ "display": "none" });
 });
 
-$(".menu__item:last-child,.menu__elem_last").click(function(){
+$(".menu__items_bottom .menu__item:last-child,.menu__elem_last").click(function(){
     $(".modal-wrapper_exit").css({ "display": "flex" });
 });
 
@@ -858,7 +858,6 @@ if (Cookies.get("minDate")) {
 }
      
 $('.datepicker-here_first').click(function () {
-    $('.datepicker-here_second').attr("disabled", true);
     $(".close").on("click", function () {
         if ($('.datepicker-here_first').val() != "Выбрать с -") {
             var myDatepicker = $(".datepicker-here_first").datepicker().data('datepicker');
@@ -870,7 +869,6 @@ $('.datepicker-here_first').click(function () {
 
 
 $('.datepicker-here_second').click(function () {
-    $('.datepicker-here_first').attr("disabled", true);
     $(".close").on("click", function () {
         if ($('.datepicker-here_second').val() != "Выбрать по") {
             var myDatepicker = $(".datepicker-here_second").datepicker().data('datepicker');
