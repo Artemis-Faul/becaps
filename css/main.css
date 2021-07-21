@@ -1047,7 +1047,7 @@ footer .footer_text {
        -moz-appearance: none;
             appearance: none;
     background-repeat: no-repeat, repeat;
-    background-position: 85% 51%;
+    background-position: 95% 51%;
     background-size: 0.65em;
 }
 
@@ -1273,8 +1273,8 @@ footer .footer_text {
 .uptime-hint {
     position: absolute;
     width: 226px;
-    top: 19%;
-    left: 52.5%;
+    top: 8%;
+    left: 61%;
     padding: 10px 16px;
     background: rgb(28, 46, 53);
     opacity: 0.95;
@@ -1990,11 +1990,6 @@ textarea {
         width: 25.5%;
     }
 
-    .uptime-hint {
-        top: 20%;
-        left: 55.5%;
-    }
-
 }
 
 @media screen and (max-width: 1440px) {
@@ -2066,7 +2061,7 @@ textarea {
         left: 380px;
         top: 430px;
     }
-1440
+
     .popup {
         width: 26%;
         padding: 26px 20px 20px 20px;
@@ -2082,16 +2077,6 @@ textarea {
         margin-bottom: 30px;
     }
 
-    .uptime-hint {
-        top: 19%;
-    }
-}
-
-
-@media screen and (max-width: 1366px) {
-    .uptime-hint {
-        top: 26%;
-    }
 }
 
 @media screen and (max-width: 1280px) {
@@ -2116,8 +2101,12 @@ textarea {
         padding-top: 8.7292%;
     }
 
-    .uptime-hint {
-        top: 20%;
+    .selection, .select-user__selection {
+        background-position: 97% 51%;
+    }
+
+    .select-user__selection {
+        padding: 15px 8px 15px 8px;
     }
 }
 
