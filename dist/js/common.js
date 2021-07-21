@@ -385,6 +385,9 @@ function genNumbers(select) {
     if (!select) {
         select = 10;
     }
+    if (!$(".btn_show").length) {
+        Cookies.set("minDate",""); 
+    }
 
     minDate = Cookies.get("minDate");
     var len = $(".list li").length;

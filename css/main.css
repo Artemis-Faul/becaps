@@ -334,14 +334,9 @@ body {
     appearance: none;
     outline: none;
     cursor: pointer;
-    opacity: 0.6;
     transition: all 0.2s ease 0s;
     display: block;
     text-decoration: none;
-}
-
-.thank_send:hover {
-    opacity: 1;
 }
 
 .checkbox input[type="checkbox"] {
@@ -465,7 +460,7 @@ footer {
 
 footer .footer_text {
     color: rgb(156, 158, 166);
-    font: 300 0.75rem Manrope, sans-serif;
+    font: 400 0.75rem Manrope, sans-serif;
 }
 
 .header {
