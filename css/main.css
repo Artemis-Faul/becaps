@@ -328,6 +328,20 @@ body {
     fill: rgb(237, 91, 78);
 }
 
+::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+}
+
+input:focus::-webkit-textfield-decoration-container {
+   visibility: hidden;
+   pointer-events: none;
+   position: absolute;
+   right: 0;
+}
+
 .modal_panel_wrap {
     display: -webkit-box;
     display: -ms-flexbox;
