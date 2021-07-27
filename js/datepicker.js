@@ -859,12 +859,14 @@
                 first = dateConverter(first, 1, 1);
                 second = dateConverter(second, 1, 1);
 
-                if ( first != "Выбрать с -" && second != "Выбрать по" && first > second) {
-                    $(".datepicker-here_first").html($(".datepicker-here_first").val("Выбрать с -"));
-                    $(".datepicker-here_second").html($(".datepicker-here_second").val("Выбрать по"));
+                if ((first != "Выбрать с -" && second != "Выбрать по")) {
+                    if (first > second) { 
+                        $(".datepicker-here_first").html($(".datepicker-here_first").val("Выбрать с -"));
+                        $(".datepicker-here_second").html($(".datepicker-here_second").val("Выбрать по"));
+                    }
                 }
 
-                if (first != "Выбрать с -" && second != "Выбрать по" && first < second) {
+                if (first != "Выбрать с -" && second != "Выбрать по" && first <= second) {
                     var minDate = $(".datepicker-here_first").val();
                     var maxDate = $(".datepicker-here_second").val();
                     console.log(minDate, maxDate);

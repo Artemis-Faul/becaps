@@ -63,8 +63,9 @@ $(".lmblock").click(function () {
         setTimeout(function () {
             $("#menuHand li:nth-child(5) a").css({ "margin-top": "0" });
         }, 500);
-        $("#menuHand li").css({ "display": "flex", "align-items": "center"});
-        $("#menuHand").css({ "display": "flex", "height": "100vh" });;
+        $("#menuHand li").css({ "display": "flex", "align-items": "center" });
+        var h = window.innerHeight;
+        $("#menuHand").css({ display: "flex", height: h + "px" });;
         $("#lm1, #lm2, #lm3").css({ background: "#ed008c" });
         $(".lm-title").css({ color: "#ed008c" });
     } else {
@@ -738,6 +739,9 @@ $('.switch-btn').click(function(){
 
 
 if (window.matchMedia("(max-width: 1024px)").matches) {
+    var text_date = $(".content__title").html();
+    $(".content__title").html(text_date.replace('данных ', ''));
+    
     $(".input_choice").hide();
     $(".input_choice").insertAfter(".tabs__caption");
     $(".btn_show").appendTo(".input_choice");
@@ -765,11 +769,12 @@ if (window.matchMedia("(max-width: 1025px)").matches) {
         $(".btn_add").css({ "display": "flex" });
     }
 
-    if (Cookies.get("page")!="1" || Cookies.get("minDate")) {
-        $(".tabs__content").removeClass("active");
-        $(".tabs__content").eq(1).addClass("active");
-        $("ul.tabs__caption li").removeClass("active");
-        $("ul.tabs__caption li").eq(1).addClass("active");
+    $(".tabs__content").removeClass("active");
+    $(".tabs__content").eq(1).addClass("active");
+    $("ul.tabs__caption li").removeClass("active");
+    $("ul.tabs__caption li").eq(1).addClass("active");
+    
+    if (Cookies.get("minDate")) {
         $(".datepicker-here_first").prop("disabled", true);
         $(".datepicker-here_second").prop("disabled",  true);
     }
@@ -907,4 +912,3 @@ $(".btn_show").click(function () {
         document.location.reload();
     }
 });
-

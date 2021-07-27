@@ -290,6 +290,9 @@ $('.switch-btn').click(function(){
 
 
 if (window.matchMedia("(max-width: 1024px)").matches) {
+    var text_date = $(".content__title").html();
+    $(".content__title").html(text_date.replace('данных ', ''));
+    
     $(".input_choice").hide();
     $(".input_choice").insertAfter(".tabs__caption");
     $(".btn_show").appendTo(".input_choice");
@@ -317,11 +320,12 @@ if (window.matchMedia("(max-width: 1025px)").matches) {
         $(".btn_add").css({ "display": "flex" });
     }
 
-    if (Cookies.get("page")!="1" || Cookies.get("minDate")) {
-        $(".tabs__content").removeClass("active");
-        $(".tabs__content").eq(1).addClass("active");
-        $("ul.tabs__caption li").removeClass("active");
-        $("ul.tabs__caption li").eq(1).addClass("active");
+    $(".tabs__content").removeClass("active");
+    $(".tabs__content").eq(1).addClass("active");
+    $("ul.tabs__caption li").removeClass("active");
+    $("ul.tabs__caption li").eq(1).addClass("active");
+    
+    if (Cookies.get("minDate")) {
         $(".datepicker-here_first").prop("disabled", true);
         $(".datepicker-here_second").prop("disabled",  true);
     }
@@ -459,4 +463,3 @@ $(".btn_show").click(function () {
         document.location.reload();
     }
 });
-

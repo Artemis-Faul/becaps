@@ -19,8 +19,9 @@ $(".lmblock").click(function () {
         setTimeout(function () {
             $("#menuHand li:nth-child(5) a").css({ "margin-top": "0" });
         }, 500);
-        $("#menuHand li").css({ "display": "flex", "align-items": "center"});
-        $("#menuHand").css({ "display": "flex", "height": "100vh" });;
+        $("#menuHand li").css({ "display": "flex", "align-items": "center" });
+        var h = window.innerHeight;
+        $("#menuHand").css({ display: "flex", height: h + "px" });;
         $("#lm1, #lm2, #lm3").css({ background: "#ed008c" });
         $(".lm-title").css({ color: "#ed008c" });
     } else {
