@@ -855,35 +855,52 @@
 
                 var first = $(".datepicker-here_first").val();
                 var second = $(".datepicker-here_second").val();
-                
+
                 first = dateConverter(first, 1, 1);
                 second = dateConverter(second, 1, 1);
 
-                if ((first != "Выбрать с -" && second != "Выбрать по")) {
-                    if (first > second) { 
-                        $(".datepicker-here_first").html($(".datepicker-here_first").val("Выбрать с -"));
-                        $(".datepicker-here_second").html($(".datepicker-here_second").val("Выбрать по"));
-                    }
-                }
+                if (first != "Выбрать с -" && second != "Выбрать по" && first != 0 && second != 0) {
+                    if (first > second) {
+                        var fDatepicker = $(".datepicker-here_first").datepicker().data("datepicker");
+                        var sDatepicker = $(".datepicker-here_second").datepicker().data("datepicker");
+                        fDatepicker.clear();
+                        fDatepicker.hide();
 
-                if (first != "Выбрать с -" && second != "Выбрать по" && first <= second) {
-                    var minDate = $(".datepicker-here_first").val();
-                    var maxDate = $(".datepicker-here_second").val();
-                    console.log(minDate, maxDate);
-                    Cookies.set("page", 1);
-                    Cookies.set("minDate", minDate);
-                    Cookies.set("maxDate", maxDate);
+                        sDatepicker.clear();
+                        sDatepicker.hide();
+                        $(".datepicker-here_first").val("Выбрать с -");
+                        $(".datepicker-here_second").val("Выбрать по");
+                    } else if (first <= second) {
+                        var minDate = $(".datepicker-here_first").val();
+                        var maxDate = $(".datepicker-here_second").val();
+                        Cookies.set("page", 1);
+                        Cookies.set("minDate", minDate);
+                        Cookies.set("maxDate", maxDate);
 
-                    if (window.matchMedia("(min-width: 1024px)").matches) {
-                        $(".choice_period_val1").html(minDate);
-                        $(".choice_period_val2").html(maxDate);
                         $(".choice_period").show();
+
+                        if (window.matchMedia("(max-width: 768px)").matches) {
+                            $(".choice_period span").hide();
+                            $("<span class='defis'>-</span>").insertAfter($(".choice_period_val1"))
+                        }
+
+                        $(".choice_period_val1").html(minDate).show();
+                        $(".choice_period_val2").html(maxDate).show();
+
                         $(".datepicker_border").hide();
                         $(".datepicker_border_second").hide();
+
+                        $(".btn_show").show();
+                        $(".btn_hide").show();
+
+                        var fDatepicker = $(".datepicker-here_first").datepicker().data("datepicker");
+                        var sDatepicker = $(".datepicker-here_second").datepicker().data("datepicker");
+                        fDatepicker.destroy();
+                        sDatepicker.destroy();
+
+                        // sDatepicker.clear();
+                        // sDatepicker.hide();
                     }
-                    
-                    $(".btn_show").show();
-                    $(".btn_hide").show();
                 }
             },
 
@@ -1200,9 +1217,9 @@
             _onMouseUpBody: function (e) {
                 if (e.originalEvent.inFocus) return;
 
-                if (this.visible && !this.inFocus) {
-                    this.hide();
-                }
+                // if (this.visible && !this.inFocus) {
+                //     this.hide();
+                // }
             },
 
             _onMouseUpEl: function (e) {

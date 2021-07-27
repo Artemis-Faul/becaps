@@ -745,6 +745,7 @@ if (window.matchMedia("(max-width: 1024px)").matches) {
     $(".input_choice").hide();
     $(".input_choice").insertAfter(".tabs__caption");
     $(".btn_show").appendTo(".input_choice");
+    $("<span class='defis'>-</span>").insertAfter($(".datepicker-here_first"));
     $(".btn_show").html('<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.3654 2.09419C14.3544 1.11435 13.1654 0.41711 11.8976 0V2.6347C12.508 2.92964 13.0866 3.31343 13.594 3.80705C16.1283 6.26775 16.1283 10.2686 13.594 12.728C11.0596 15.1838 6.93957 15.1838 4.40141 12.728C1.86961 10.2661 1.86961 6.26775 4.40141 3.80705C4.40777 3.79965 4.42811 3.78731 4.43702 3.7762H4.43956L5.94135 5.23115L5.93244 0.610856L1.17403 0.604686L2.66946 2.05593C2.66056 2.07074 2.64657 2.08555 2.63512 2.09419C-0.878375 5.50264 -0.878375 11.0324 2.63512 14.4409C6.15371 17.853 11.848 17.853 15.3654 14.4409C18.8763 11.0324 18.8801 5.50264 15.3654 2.09419Z" fill="white"/></svg>');
     $(".btn_hide").html('<svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.1818 14.4H10.9753L17.7604 7.76567C18.0799 7.4533 18.0799 6.94674 17.7604 6.63431L11.2149 0.23432C10.8954 -0.0781065 10.3774 -0.0781065 10.0578 0.23432L0.239672 9.83425C0.0861817 9.98428 0 10.1877 0 10.4C0 10.6122 0.0861817 10.8156 0.239672 10.9657L5.14876 15.7657C5.30219 15.9157 5.51028 15.9999 5.72726 15.9999L8.99999 16L9.00091 15.9999L17.1818 16C17.6336 16 18 15.6418 18 15.2C18 14.7582 17.6336 14.4 17.1818 14.4ZM10.6363 1.93138L16.0247 7.20002L11.2909 11.8286L5.90252 6.56002L10.6363 1.93138Z" fill="white"/></svg>');
     $(".btn_hide").insertAfter(".btn_show");
@@ -776,7 +777,9 @@ if (window.matchMedia("(max-width: 1025px)").matches) {
     
     if (Cookies.get("minDate")) {
         $(".datepicker-here_first").prop("disabled", true);
-        $(".datepicker-here_second").prop("disabled",  true);
+        $(".datepicker-here_second").prop("disabled", true);
+        $(".datepicker-here").css({width:"83px"})
+        $(".defis").css({padding:"0 1px 0 2px"})
     }
 
     if ($("ul.tabs__caption li").eq(1).hasClass("active")) {
@@ -809,6 +812,41 @@ $(".menu__items_bottom .menu__item:last-child,.menu__elem_last").click(function(
 });
 
 
+jQuery(($) => {
+    $('.select').on('click', '.select__head', function () {
+        if ($(this).hasClass('open')) {
+            $(this).removeClass('open');
+            $(this).next().fadeOut();
+        } else {
+            $('.select__head').removeClass('open');
+            $('.select__list').fadeOut();
+            $(this).addClass('open');
+            $(this).next().fadeIn();
+        }
+    });
+
+    $('.select').on('click', '.select__item', function () {
+        $('.select__head').removeClass('open');
+        $(this).parent().fadeOut();
+        $(this).parent().prev().text($(this).text());
+        $(this).parent().prev().prev().val($(this).text());
+    });
+
+    $(document).click(function (e) {
+        if (!$(e.target).closest('.select').length) {
+            $('.select__head').removeClass('open');
+            $('.select__list').fadeOut();
+        }
+    });
+});
+
+
+$(".select__item").click(function () {
+    $(".submit-button_user").removeClass("disabled");
+    $(".submit-button_user").prop("disabled", false);
+
+});
+
 $(".select-user__selection").on("change", function () {
     var select = $(".select-user__selection").val();
     if (select != "Выберите пользователя") {
@@ -821,6 +859,7 @@ $(".select-user__selection").on("change", function () {
     }
 
 });
+
 
 $(".admin svg").click(function () {
     $(this).closest(".admin").css({ "display": "none" });
@@ -863,17 +902,32 @@ if (Cookies.get("minDate")) {
 }
      
 $('.datepicker-here_first').click(function () {
+    var vals = $('.datepicker-here_second').val();
+    var hisDatepicker = $(".datepicker-here_second").datepicker().data('datepicker');
+    hisDatepicker.hide();
+    $('.datepicker-here_second').val(vals);
+
+
+    // $(".datepicker-here_first").val("Выбрать с -");
+
     $(".close").on("click", function () {
         if ($('.datepicker-here_first').val() != "Выбрать с -") {
             var myDatepicker = $(".datepicker-here_first").datepicker().data('datepicker');
             myDatepicker.hide();
-             $('.datepicker-here_second').attr("disabled", false);
+            $('.datepicker-here_second').attr("disabled", false);
         }
     });
 });
 
 
 $('.datepicker-here_second').click(function () {
+    var vals = $('.datepicker-here_first').val();
+    var hisDatepicker = $(".datepicker-here_first").datepicker().data('datepicker');
+    hisDatepicker.hide();
+    $('.datepicker-here_first').val(vals);
+    
+    // $(".datepicker-here_second").val("Выбрать по");
+
     $(".close").on("click", function () {
         if ($('.datepicker-here_second').val() != "Выбрать по") {
             var myDatepicker = $(".datepicker-here_second").datepicker().data('datepicker');
@@ -884,6 +938,13 @@ $('.datepicker-here_second').click(function () {
 });
 
 $(".btn_hide").click(function () {
+    var fDatepicker = $(".datepicker-here_first").datepicker().data('datepicker');
+    var sDatepicker = $(".datepicker-here_second").datepicker().data('datepicker');
+    fDatepicker.clear();
+    sDatepicker.clear();
+    fDatepicker.hide();
+    sDatepicker.hide();
+
     $(".datepicker-here_first").html($(".datepicker-here_first").val("Выбрать с -"));
     $(".datepicker-here_second").html($(".datepicker-here_second").val("Выбрать по"));
     $(".datepicker_border").show();
