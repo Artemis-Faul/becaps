@@ -5,7 +5,7 @@ $(".lmblock").click(function () {
     if (counter % 2 == 0) {
         var h = window.innerHeight;
         // $("#menuHand").css({ "margin-top": h + 60 + "px" });
-        $("#menuHand").css({ "margin-top": "calc(100% + 60px)" });
+        $("#menuHand").css({ "margin-top": "-100vh" });
         setTimeout(function () {
             $("#menuHand li:nth-child(1) a").css({ "margin-top": "0" });
         }, 100);
