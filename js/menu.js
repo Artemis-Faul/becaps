@@ -4,8 +4,7 @@ var scrollPos = 0;
 $(".lmblock").click(function () {
     if (counter % 2 == 0) {
         var h = window.innerHeight;
-        // $("#menuHand").css({ "margin-top": h + 60 + "px" });
-        $("#menuHand").css({ "margin-top": "-100vh" });
+        $("#menuHand").css({ "margin-top": h + 60 + "px" });
         setTimeout(function () {
             $("#menuHand li:nth-child(1) a").css({ "margin-top": "0" });
         }, 100);
