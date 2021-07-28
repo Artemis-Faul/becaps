@@ -1014,9 +1014,9 @@ footer .footer_text {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: end;
+    -webkit-box-pack: flex-end;
+    -ms-flex-pack: flex-end;
+    justify-content: flex-end;
     margin-right: 32px;
 }
 
@@ -1077,14 +1077,20 @@ footer .footer_text {
     position: absolute;
     right: 12px;
     bottom: 50%;
-    transform: translateY(50%);
+    -webkit-transform: translateY(50%);
+        -ms-transform: translateY(50%);
+            transform: translateY(50%);
     content: '';
     display: block;
+    -webkit-transition: .2s ease-in;
+    -o-transition: .2s ease-in;
     transition: .2s ease-in;
 }
 
 .select__head.open::after {
-    transform: translateY(50%) rotate(180deg);
+    -webkit-transform: translateY(50%) rotate(180deg);
+        -ms-transform: translateY(50%) rotate(180deg);
+            transform: translateY(50%) rotate(180deg);
 }
 
 .select__list {
@@ -1100,10 +1106,11 @@ footer .footer_text {
     overflow-y: auto;
     margin: 0;
     padding: 0;
-    color: color: #1C2E35;
+    color: color: ;
     scrollbar-color: dark;
     scrollbar-width: thin;
-    overscroll-behavior: contain;
+    -ms-scroll-chaining: none;
+        overscroll-behavior: contain;
     border-radius: 0 0 10px 10px;
     font: 500 1rem Manrope, sans-serif;
 }
@@ -1985,7 +1992,9 @@ textarea {
     display: -ms-flexbox;
     display: flex;
     margin-right: 16px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .choice_period {
@@ -2515,6 +2524,8 @@ textarea {
 
     .content__title {
         font: 600 1.125rem Manrope, sans-serif;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }
 
@@ -2628,7 +2639,9 @@ textarea {
     .select-number_of_pages {
         padding: 5px 0px 25px;
         margin-right: 0px;
-        justify-content: unset;
+        -webkit-box-pack: unset;
+            -ms-flex-pack: unset;
+                justify-content: unset;
         width: calc(100vw - 16px);
     }
 
@@ -2647,6 +2660,8 @@ textarea {
 
     .uptime-hint__icon {
         margin-right: 0px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         margin-left: auto;
     }
