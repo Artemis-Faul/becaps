@@ -3,7 +3,8 @@ var scrollPos = 0;
 
 $(".lmblock").click(function () {
     if (counter % 2 == 0) {
-        $("#menuHand").css({ "margin-top": "100vh" });
+        var h = window.innerHeight;
+        $("#menuHand").css({ "margin-top": h+60+"px" });
         setTimeout(function () {
             $("#menuHand li:nth-child(1) a").css({ "margin-top": "0" });
         }, 100);
@@ -20,7 +21,6 @@ $(".lmblock").click(function () {
             $("#menuHand li:nth-child(5) a").css({ "margin-top": "0" });
         }, 500);
         $("#menuHand li").css({ "display": "flex", "align-items": "center" });
-        var h = window.innerHeight;
         $("#menuHand").css({ display: "flex", height: h + "px" });;
         $("#lm1, #lm2, #lm3").css({ background: "#ed008c" });
         $(".lm-title").css({ color: "#ed008c" });
