@@ -47,7 +47,7 @@ var scrollPos = 0;
 
 $(".lmblock").click(function () {
     if (counter % 2 == 0) {
-        $("#menuHand").css({ "margin-top": "calc(100vh + 20px)" });
+        $("#menuHand").css({ "margin-top": "100vh" });
         setTimeout(function () {
             $("#menuHand li:nth-child(1) a").css({ "margin-top": "0" });
         }, 100);
