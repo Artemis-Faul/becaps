@@ -290,8 +290,9 @@ $('.switch-btn').click(function(){
 
 if (window.matchMedia("(max-width: 1024px)").matches) {
     var text_date = $(".content__title").html();
-    $(".content__title").html(text_date.replace('данных ', ''));
-    
+    if (text_date) {
+        $(".content__title").html(text_date.replace('данных ', ''));
+    }
     $(".input_choice").hide();
     $(".input_choice").insertAfter(".tabs__caption");
     $(".btn_show").appendTo(".input_choice");
