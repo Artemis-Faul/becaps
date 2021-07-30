@@ -73,7 +73,6 @@ $("form input[type=email]").on("input", function () {
             $(".btn_send").prop("disabled", false);
             $(".btn_send").removeClass("disabled");
         } else {
-            $(this).css({ "border-color": "#da0b20" });
             $(".btn_send").prop("disabled", true);
             $(".btn_send").addClass("disabled");
         }
