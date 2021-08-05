@@ -425,6 +425,9 @@ $(".admin svg").click(function () {
     $(this).closest(".admin").css({ "display": "none" });
 });
 
+$(".submit-button").click(function () {
+    Cookies.set("activeel", 0);
+});
 
 var Circle = function(sel){
     var circles = document.querySelectorAll(sel);
