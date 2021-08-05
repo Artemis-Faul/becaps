@@ -48,22 +48,18 @@ var scrollPos = 0;
 $(".lmblock").click(function () {
     if (counter % 2 == 0) {
         var h = window.innerHeight;
-        $("#menuHand").css({ "margin-top": h + 60 + "px" });
+        $("#menuHand").css({ "margin-top": "60px" });
         setTimeout(function () {
             $("#menuHand li:nth-child(1) a").css({ "margin-top": "0" });
+            $("#menuHand li:nth-child(4) a").css({ "margin-top": "0" });
         }, 100);
         setTimeout(function () {
             $("#menuHand li:nth-child(2) a").css({ "margin-top": "0" });
+            // $("#menuHand li:nth-child(4) a").css({ "margin-top": "0" });
         }, 200);
         setTimeout(function () {
             $("#menuHand li:nth-child(3) a").css({ "margin-top": "0" });
         }, 300);
-        setTimeout(function () {
-            $("#menuHand li:nth-child(4) a").css({ "margin-top": "0" });
-        }, 400);
-        setTimeout(function () {
-            $("#menuHand li:nth-child(5) a").css({ "margin-top": "0" });
-        }, 500);
         $("#menuHand li").css({ "display": "flex", "align-items": "center" });
         $("#menuHand").css({ display: "flex", height: h + "px" });;
         $("#lm1, #lm2, #lm3").css({ background: "#ed008c" });
@@ -319,7 +315,7 @@ $("form input[name=password]").keyup(function () {
 
 // email check
 $("form input[type=email]").on("input", function () {
-    var pattern = /^[a-z0-9_-]+@[a-z0-9-]+\.([a-z]{1,6}\.)?[a-z]{2,6}$/i;
+    var pattern = /^[a-z0-9_.-]+@[a-z0-9-]+\.([a-z]{1,6}\.)?[a-z]{2,6}$/i;
     let email = $(this).val();
     if (email != "") {
         $(this).css({ "border-color": "#c7cfcf" });
@@ -732,9 +728,21 @@ $('.switch-btn').click(function(){
         else {
             $(".input_choice").hide();
         }
+        var elActive = $("ul.tabs__caption li").index($(this));
+        Cookies.set("activeel", elActive);
     });
   });
 })(jQuery);
+
+var elAcives = Number(Cookies.get("activeel"));
+if (!elAcives){
+    elAcives = 0;
+}
+
+$(".tabs__content").removeClass("active");
+$(".tabs__content").eq(elAcives).addClass("active");
+$("ul.tabs__caption li").removeClass("active");
+$("ul.tabs__caption li").eq(elAcives).addClass("active");
 
 
 if (window.matchMedia("(max-width: 1024px)").matches) {
@@ -770,10 +778,10 @@ if (window.matchMedia("(max-width: 1025px)").matches) {
         $(".btn_add").css({ "display": "flex" });
     }
 
-    $(".tabs__content").removeClass("active");
-    $(".tabs__content").eq(1).addClass("active");
-    $("ul.tabs__caption li").removeClass("active");
-    $("ul.tabs__caption li").eq(1).addClass("active");
+    // $(".tabs__content").removeClass("active");
+    // $(".tabs__content").eq(1).addClass("active");
+    // $("ul.tabs__caption li").removeClass("active");
+    // $("ul.tabs__caption li").eq(1).addClass("active");
     
     if (Cookies.get("minDate")) {
         $(".datepicker-here_first").prop("disabled", true);
@@ -925,8 +933,6 @@ $('.datepicker-here_second').click(function () {
     var hisDatepicker = $(".datepicker-here_first").datepicker().data('datepicker');
     hisDatepicker.hide();
     $('.datepicker-here_first').val(vals);
-    
-    // $(".datepicker-here_second").val("Выбрать по");
 
     $(".close").on("click", function () {
         if ($('.datepicker-here_second').val() != "Выбрать по") {
@@ -973,3 +979,4 @@ $(".btn_show").click(function () {
         document.location.reload();
     }
 });
+

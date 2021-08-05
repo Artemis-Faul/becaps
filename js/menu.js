@@ -4,22 +4,18 @@ var scrollPos = 0;
 $(".lmblock").click(function () {
     if (counter % 2 == 0) {
         var h = window.innerHeight;
-        $("#menuHand").css({ "margin-top": h + 60 + "px" });
+        $("#menuHand").css({ "margin-top": "60px" });
         setTimeout(function () {
             $("#menuHand li:nth-child(1) a").css({ "margin-top": "0" });
+            $("#menuHand li:nth-child(4) a").css({ "margin-top": "0" });
         }, 100);
         setTimeout(function () {
             $("#menuHand li:nth-child(2) a").css({ "margin-top": "0" });
+            // $("#menuHand li:nth-child(4) a").css({ "margin-top": "0" });
         }, 200);
         setTimeout(function () {
             $("#menuHand li:nth-child(3) a").css({ "margin-top": "0" });
         }, 300);
-        setTimeout(function () {
-            $("#menuHand li:nth-child(4) a").css({ "margin-top": "0" });
-        }, 400);
-        setTimeout(function () {
-            $("#menuHand li:nth-child(5) a").css({ "margin-top": "0" });
-        }, 500);
         $("#menuHand li").css({ "display": "flex", "align-items": "center" });
         $("#menuHand").css({ display: "flex", height: h + "px" });;
         $("#lm1, #lm2, #lm3").css({ background: "#ed008c" });

@@ -65,7 +65,7 @@ $("form input[name=password]").keyup(function () {
 
 // email check
 $("form input[type=email]").on("input", function () {
-    var pattern = /^[a-z0-9_-]+@[a-z0-9-]+\.([a-z]{1,6}\.)?[a-z]{2,6}$/i;
+    var pattern = /^[a-z0-9_.-]+@[a-z0-9-]+\.([a-z]{1,6}\.)?[a-z]{2,6}$/i;
     let email = $(this).val();
     if (email != "") {
         $(this).css({ "border-color": "#c7cfcf" });
@@ -283,9 +283,21 @@ $('.switch-btn').click(function(){
         else {
             $(".input_choice").hide();
         }
+        var elActive = $("ul.tabs__caption li").index($(this));
+        Cookies.set("activeel", elActive);
     });
   });
 })(jQuery);
+
+var elAcives = Number(Cookies.get("activeel"));
+if (!elAcives){
+    elAcives = 0;
+}
+
+$(".tabs__content").removeClass("active");
+$(".tabs__content").eq(elAcives).addClass("active");
+$("ul.tabs__caption li").removeClass("active");
+$("ul.tabs__caption li").eq(elAcives).addClass("active");
 
 
 if (window.matchMedia("(max-width: 1024px)").matches) {
@@ -321,10 +333,10 @@ if (window.matchMedia("(max-width: 1025px)").matches) {
         $(".btn_add").css({ "display": "flex" });
     }
 
-    $(".tabs__content").removeClass("active");
-    $(".tabs__content").eq(1).addClass("active");
-    $("ul.tabs__caption li").removeClass("active");
-    $("ul.tabs__caption li").eq(1).addClass("active");
+    // $(".tabs__content").removeClass("active");
+    // $(".tabs__content").eq(1).addClass("active");
+    // $("ul.tabs__caption li").removeClass("active");
+    // $("ul.tabs__caption li").eq(1).addClass("active");
     
     if (Cookies.get("minDate")) {
         $(".datepicker-here_first").prop("disabled", true);
@@ -476,8 +488,6 @@ $('.datepicker-here_second').click(function () {
     var hisDatepicker = $(".datepicker-here_first").datepicker().data('datepicker');
     hisDatepicker.hide();
     $('.datepicker-here_first').val(vals);
-    
-    // $(".datepicker-here_second").val("Выбрать по");
 
     $(".close").on("click", function () {
         if ($('.datepicker-here_second').val() != "Выбрать по") {
@@ -524,3 +534,4 @@ $(".btn_show").click(function () {
         document.location.reload();
     }
 });
+

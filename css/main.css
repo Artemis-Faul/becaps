@@ -639,6 +639,7 @@ footer .footer_text {
     margin-top: 7.4vh;
     height: calc(92.6vh);
     position: fixed;
+    z-index: 150;
 }
 
 .menu__item {
@@ -2918,7 +2919,7 @@ textarea {
 
     #star_2 {
         left: 62%;
-        top: 56%;
+        top: 63%;
         width: 31px;
         height: 21px;
     }
