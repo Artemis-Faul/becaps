@@ -737,8 +737,10 @@ $('.switch-btn').click(function(){
 var elAcives = Number(Cookies.get("activeel"));
 if (!elAcives){
     elAcives = 0;
+}else if (elAcives == 2 && $("ul.tabs__caption li").length<=2) {
+    elAcives = 0;
+    Cookies.set("activeel", 0);
 }
-
 $(".tabs__content").removeClass("active");
 $(".tabs__content").eq(elAcives).addClass("active");
 $("ul.tabs__caption li").removeClass("active");
@@ -777,11 +779,6 @@ if (window.matchMedia("(max-width: 1025px)").matches) {
     }else {
         $(".btn_add").css({ "display": "flex" });
     }
-
-    // $(".tabs__content").removeClass("active");
-    // $(".tabs__content").eq(1).addClass("active");
-    // $("ul.tabs__caption li").removeClass("active");
-    // $("ul.tabs__caption li").eq(1).addClass("active");
     
     if (Cookies.get("minDate")) {
         $(".datepicker-here_first").prop("disabled", true);
