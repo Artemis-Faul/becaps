@@ -2238,7 +2238,9 @@ textarea {
     .content_404 {
         height: calc(100vh - 80px);
         padding-top: 0;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
 
     #star_1 {
