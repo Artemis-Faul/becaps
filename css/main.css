@@ -2422,22 +2422,22 @@ textarea {
     }
 
     .menu__item {
-        width: 11vw;
-        height: 13vw;
+        width: 9vw;
+        height: 9.5vw;
     }
 
     .menu__item_active {
-        width: 11vw;
-        height: 11vw;
+        width: 9vw;
+        height: 9.5vw;
     }
 
     .menu {
-        width: 11vw;
+        width: 9vw;
         height: calc(70vh - 80px);
     }
 
     .menu__items__title {
-        font: 400 1rem Manrope, sans-serif;
+        font: 400 0.75rem Manrope, sans-serif;
     }
 
     .logo {
